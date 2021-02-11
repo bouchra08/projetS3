@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>donation</display-name>     
+	<servlet>
+        <servlet-name>DonateurServlet</servlet-name>
+        <servlet-class>com.controller.DonateurServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssociationServlet</servlet-name>
+        <servlet-class>com.controller.AssociationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DonappelServlet</servlet-name>
+        <servlet-class>com.controller.DonappelServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AppelaudonServlet</servlet-name>
+        <servlet-class>com.controller.AppelaudonServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProjetServlet</servlet-name>
+        <servlet-class>com.controller.ProjetServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>DonateurServlet</servlet-name>
+        <url-pattern>/DonateurServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>AssociationServlet</servlet-name>
+        <url-pattern>/AssociationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DonappelServlet</servlet-name>
+        <url-pattern>/DonappelServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AppelaudonServlet</servlet-name>
+        <url-pattern>/AppelaudonServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProjetServlet</servlet-name>
+        <url-pattern>/ProjetServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>AjoutDonateur.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
