@@ -316,24 +316,26 @@
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad addcoursepro">
                                                 
-
-                                                    <%-- <form action="update.jsp?id_projet=<%=resultSet.getString("id_projet") %>" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
+                                               
+                                                <c:forEach items="${projetList}" var="p">
+													 
+                                                     <form action="ProjetServlet" method="POST" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                    <input name="id_projet" type="hidden" class="form-control" value="<%=resultSet.getString("id_projet") %>">
+                                                                    <input name="id_projet" type="hidden" class="form-control" value="${p.id_projet}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="nom" type="text" class="form-control" value="<%=resultSet.getString("nom") %>">
+                                                                    <input name="nom" type="text" class="form-control" value="${p.nom}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="duration" type="text" class="form-control" value="<%=resultSet.getString("duree_realisation")%>">
+                                                                    <input name="duree_realisation" type="text" class="form-control" value="${p.duree_realisation}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="lieu" type="text" class="form-control" value="<%=resultSet.getString("lieu")%>">
+                                                                    <input name="lieu" type="text" class="form-control" value="${p.lieu}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <input name="date_echeance" id="finish" type="text" class="form-control" value="<%=resultSet.getString("date_echeance")%>">
+                                                                    <input name="date_echeance" id="finish" type="text" class="form-control" value="${p.date_echeance}">
                                                                 </div>
                                                                 <!-- <div class="form-group alert-up-pd">
                                                                     <div class="dz-message needsclick download-custom">
@@ -347,22 +349,23 @@
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
-                                                                    <input name="budget" type="number" class="form-control" value="<%=resultSet.getString("budget")%>">
+                                                                    <input name="budget" type="text" class="form-control" value="${p.budget}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <textarea name="description" value="<%=resultSet.getString("description")%>"></textarea>
+                                                                    <input name="description" type="text" class="form-control" value="${p.description}">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-lg-12">
                                                                 <div class="payment-adress">
-                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                                    <button value="ModifierProjet" name="modifierProjet" type="submit" class="btn btn-primary waves-effect waves-light">Modifier</button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </form> --%>
-                                                      
+                                                    </form> 
+                                                     
+                                                   </c:forEach>    
                                                 </div>
                                             </div>
                                         </div>
@@ -430,7 +433,7 @@
     <script src="js/form-validation/form-active.js"></script>
     <!-- dropzone JS
         ============================================ -->
-    <script src="js/dropzone/dropzone.js"></script>
+    <!-- <script src="js/dropzone/dropzone.js"></script> -->
     <!-- tab JS
         ============================================ -->
     <script src="js/tab.js"></script>

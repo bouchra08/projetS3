@@ -140,6 +140,7 @@ body {}
 /*----------------------------------------*/
 /*  4. left sidebar
 /*----------------------------------------*/
+
 .all-content-wrapper {
     margin-left: 200px;
     transition: all 0.3s;
@@ -257,6 +258,16 @@ body {}
     transition: all .4s ease 0s;
     font-size: 16px;
 }
+.left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li .servletButton {
+	background-color: #444; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:hover, .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:focus, .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:active, .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a:visited{
 	background:#ebebeb;
 	color:#444;
@@ -265,6 +276,7 @@ body {}
 	float: right;
 	font-size:12px;
 }
+
 #sidebar.active .left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li.open .left-menu-dropdown {
     left: 80px;
 }
@@ -2617,7 +2629,7 @@ li.multipleInput-email {
 }
 li.multipleInput-email a{
     background: #none;
-    color: #fff;
+    color:  #fff;
     margin-left: 4px;
     display: inline-block;
     padding: 0px 1px;

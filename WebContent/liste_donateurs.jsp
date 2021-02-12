@@ -105,7 +105,7 @@
                         </li>
                         <form action="DonateurServlet" method="POST">
 				            <span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span> <input type="submit" name="afficherDonateur" value="Donnateurs"><span  class="mini-click-non">Donnateurs</span> &nbsp; &nbsp;<br>          
-				        
+				        <button value="AfficherProjet" name="afficherUnProjet" type="submit" class="servletButton"></button>
 				        </form>
 				        <li>
 				        </li>

@@ -1,6 +1,7 @@
 package com.bean;
 
 import java.io.Serializable;
+
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -70,13 +71,10 @@ public class Projet implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getId_asso() {
-		return id_asso;
-	}
-	public void setId_asso(int id_asso) {
-		this.id_asso = id_asso;
-	}
-	
+	/*
+	 * public int getId_asso() { return id_asso; } public void setId_asso(int
+	 * id_asso) { this.id_asso = id_asso; }
+	 */
 	
 	
 

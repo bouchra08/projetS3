@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bean.Appelaudon;
 import com.bean.Projet;
 import com.crud.DAOprojet;
 import com.gestion.GestionDAOprojet;
@@ -39,17 +39,19 @@ public class ProjetServlet  extends HttpServlet{
 	                RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
 	                rd.forward(request, response);
 	            }
+	             if(request.getParameter("afficherUnProjet")!=null){
+	            	 	int id = Integer.parseInt(request.getParameter("id_projet"));
+		                List<Projet> projetList = new ArrayList();
+		                projetList = gs.AfficherProjet(id);
+		                request.setAttribute("projetList", projetList);
+		                RequestDispatcher rd = request.getRequestDispatcher("modifier_projet.jsp");
+		                rd.forward(request, response);
+		            }
 	             
-	              if(request.getParameter("modifierprojet")!=null){
+	              if(request.getParameter("modifierProjet")!=null){
 	                 int id_projet = Integer.parseInt(request.getParameter("id_projet"));
 	                 String nom = request.getParameter("nom");
-	                 Date date_lancement = null;
-					try {
-						date_lancement = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
-					} catch (ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+	                 
 	                 Date date_echeance = null;
 					try {
 						date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
@@ -61,8 +63,8 @@ public class ProjetServlet  extends HttpServlet{
 	                 Float budget = Float.parseFloat(request.getParameter("budget"));
 	                 String lieu= request.getParameter("lieu");
 	                 String description = request.getParameter("description");
-	                 gs.modifier_Projet(id_projet, nom,date_lancement,duree_realisation,date_echeance,budget,lieu,description);                 
-	                 RequestDispatcher rd = request.getRequestDispatcher("ModifierProjet.jsp");
+	                 gs.modifier_Projet(id_projet, nom,duree_realisation,date_echeance,budget,lieu,description);                 
+	                 RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
 	                 rd.forward(request, response);              
 	                
 	             }
@@ -71,7 +73,7 @@ public class ProjetServlet  extends HttpServlet{
 	                int idx = Integer.parseInt(request.getParameter("id_projet"));
 	                p.setId_projet(idx);
 	                gs.supprimer_Projet(p);
-	                RequestDispatcher rd = request.getRequestDispatcher("SupprimerProjet.jsp");
+	                RequestDispatcher rd = request.getRequestDispatcher("liste_projet.jsp");
 	                rd.forward(request, response);
 	             } 
 	             if(request.getParameter("ajoutProjet")!=null){
