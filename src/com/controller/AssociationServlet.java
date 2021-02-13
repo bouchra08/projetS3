@@ -52,14 +52,31 @@ public class AssociationServlet extends HttpServlet{
              a.setEmail(email);
              a.setAdresse(adresse);
              a.setVille(ville);
+             a.setDescription(description);
              a.setPassword(password);
              gs.ajouter_Association(a);
              RequestDispatcher rd = request.getRequestDispatcher("AfficherDonateurs.jsp");
              rd.forward(request, response);
          }catch(Exception e){
-        	 
+        	 System.out.print(e);
          	}
          }
+         if(request.getParameter("loginass")!=null){
+        	 
+        	 String username = request.getParameter("email");
+        	 String password = request.getParameter("password");
+
+        	 if (gs.validate(username, password)) {
+        		 
+        		 RequestDispatcher dispatcher = request.getRequestDispatcher("AjoutDonateur.jsp");
+        		 dispatcher.forward(request, response);
+        	 } else {
+        		 System.out.print("errore somewhere");
+        		 RequestDispatcher dispatcher = request.getRequestDispatcher("login_ass.jsp");
+        		 dispatcher.forward(request, response);
+        		 
+        		  }
+          }
                       
      }
     

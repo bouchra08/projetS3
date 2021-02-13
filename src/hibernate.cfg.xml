@@ -10,7 +10,9 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
           <property name="hibernate.hbm2ddl.auto">update</property>
          <mapping class="com.bean.Donateur"/>
+         <mapping class="com.bean.Association"/>
          <mapping class="com.bean.Donappel"/>
          <mapping class="com.bean.Projet"/>
+         <mapping class="com.bean.Appelaudon"/>
     </session-factory>
 </hibernate-configuration>

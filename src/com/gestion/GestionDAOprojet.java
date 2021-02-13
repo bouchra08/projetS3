@@ -14,15 +14,20 @@ import com.crud.DAOprojet;
 
 public class GestionDAOprojet implements DAOprojet{
 	@Override
-	public void ajouter_Projet(Projet p) {
+	public List<Projet> ajouter_Projet(Projet p) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(p);
 		transaction.commit();
-		session.close();		
+		List<Projet> projetList = new ArrayList();
+		String qr = "FROM Projet"; //Entity name
+		Query query = session.createQuery(qr);
+		projetList  = query.list();
+		return projetList ;
+				
 	}
 	
-	public void modifier_Projet(int id_projet, String nom,String duree_realisation,Date date_echeance,Float budget,String lieu,String description) {
+	public List<Projet> modifier_Projet(int id_projet, String nom,String duree_realisation,Date date_echeance,Float budget,String lieu,String description) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Projet p = (Projet) session.load(Projet.class,id_projet);
@@ -37,15 +42,24 @@ public class GestionDAOprojet implements DAOprojet{
 		
 		session.update(p);
 		transaction.commit();
-		session.close();			
+		List<Projet> projetList = new ArrayList();
+		String qr = "FROM Projet"; //Entity name
+		Query query = session.createQuery(qr);
+		projetList  = query.list();
+		return projetList ;
+					
 	}
 	
-	public void supprimer_Projet(Projet p) {
+	public List<Projet> supprimer_Projet(Projet p) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();		
 		session.delete(p);
         transaction.commit();
-		session.close();	
+        List<Projet> projetList = new ArrayList();
+		String qr = "FROM Projet"; //Entity name
+		Query query = session.createQuery(qr);
+		projetList  = query.list();
+		return projetList ;	
 
 	}
 	

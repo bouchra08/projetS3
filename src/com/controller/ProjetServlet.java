@@ -63,7 +63,10 @@ public class ProjetServlet  extends HttpServlet{
 	                 Float budget = Float.parseFloat(request.getParameter("budget"));
 	                 String lieu= request.getParameter("lieu");
 	                 String description = request.getParameter("description");
-	                 gs.modifier_Projet(id_projet, nom,duree_realisation,date_echeance,budget,lieu,description);                 
+	                 gs.modifier_Projet(id_projet, nom,duree_realisation,date_echeance,budget,lieu,description);
+	                 List<Projet> projetList = new ArrayList();
+		             projetList = gs.AfficherProjets();
+		             request.setAttribute("projetList", projetList);
 	                 RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
 	                 rd.forward(request, response);              
 	                
@@ -73,29 +76,32 @@ public class ProjetServlet  extends HttpServlet{
 	                int idx = Integer.parseInt(request.getParameter("id_projet"));
 	                p.setId_projet(idx);
 	                gs.supprimer_Projet(p);
+	                List<Projet> projetList = new ArrayList();
+		            projetList = gs.AfficherProjets();
+		            request.setAttribute("projetList", projetList);
 	                RequestDispatcher rd = request.getRequestDispatcher("liste_projet.jsp");
 	                rd.forward(request, response);
 	             } 
 	             if(request.getParameter("ajoutProjet")!=null){
 	            	 try {
 	                 String nom = request.getParameter("nom");
-	                 Date date_lancement= (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
+	                 //Date date_lancement= (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
 	                 String duree_realisation= request.getParameter("duree_realisation");
-	                 Date date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
+	                 //Date date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
 	                 Float budget = Float.parseFloat(request.getParameter("budget"));
 	                 String lieu= request.getParameter("lieu");
 	                 String description = request.getParameter("description");
-	                 
-	                 
-	                 
 	                 p.setNom(nom);
-	         		 p.setDate_lancement(date_lancement);
+	         		// p.setDate_lancement(date_lancement);
 	         		 p.setDuree_realisation(duree_realisation);
-	         		 p.setDate_echeance(date_echeance);
+	         		// p.setDate_echeance(date_echeance);
 	         		 p.setBudget(budget);
 	         		 p.setLieu(lieu);
 	         		 p.setDescription(description);
 	                 gs.ajouter_Projet(p);
+	                 List<Projet> projetList = new ArrayList();
+		             projetList = gs.AfficherProjets();
+		             request.setAttribute("projetList", projetList);
 	                 RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
 	                 rd.forward(request, response);
 	             }catch(Exception e){

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -14,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
         ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href=""> 
     <!-- Google Fonts
         ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -78,47 +77,47 @@
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <img class="main-logo" src="images/care.png" alt="" />
-                <strong>><img src="images/care.png" alt="" /></strong>
+                <strong>><img src="img/logo/logosn.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                        
                         <li class="active">
-                            <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Projets</span></a>
+                            <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Projets</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-		                        <li>
-		                        <form action="ProjetServlet" method="POST">
-		            			&emsp;<button value="AfficherProjet" name="afficherProjet" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste projets</button>
-		       					 </form>
-		       					</li>
-                                <li><a title="#" href="add_projet.jsp"><span class="mini-sub-pro">Ajouter projet</span></a></li>
+                                <li>
+                                <form action="ProjetServlet" method="POST">
+                                &emsp;<button value="AfficherProjet" name="afficherProjet" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste projets</button>
+                                 </form>
+                                </li>
+                                <li><a title="Add Courses" href="add_projet.jsp"><span class="mini-sub-pro">Ajouter projet</span></a></li>
                                 <li><a title="Courses Profile" href="#"><span class="mini-sub-pro">Projets Info</span></a></li>
                             </ul>
                         </li>
                          <li>
                             <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Appel aux dons</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
+                                
                                 <li>
-		                        <form action="AppelaudonServlet" method="POST">
-		            			&emsp;&emsp;<button value="AfficherAppelaudon" name="afficherAppelaudon" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste appels</button>
-		       					 </form>
-		       					</li>
+                                <form action="AppelaudonServlet" method="POST">
+                                &emsp;&emsp;<button value="AfficherAppelaudon" name="afficherAppelaudon" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste appels</button>
+                                 </form>
+                                </li>
                                <li><a title="Add Departments" href="add_appel.jsp"><span class="mini-sub-pro">Ajouter appel au don</span></a></li>
                             </ul>
-                        </li>
+                           </li>
+                        
                         <li>
                         <form action="DonateurServlet" method="POST">
-            			&emsp;<span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span><button value="AfficherDonateur" name="afficherDonateur" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Donateurs</button>
-       					 </form>
-       					</li>
+                        &emsp;<span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span><button value="AfficherDonateur" name="afficherDonateur" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Donateurs</button>
+                         </form>
+                        </li>
                         <li>
                         <form action="DonappelServlet" method="POST">
-            			&emsp;<span class="educate-icon educate-data-table icon-wrap" aria-hidden="true"></span><button value="AfficherDonappel" name="afficherDonappel" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Liste Dons</button>
-       					 </form>
-       					</li>
-                        
-                        
+                        &emsp;<span class="educate-icon educate-data-table icon-wrap" aria-hidden="true"></span><button value="AfficherDonappel" name="afficherDonappel" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Liste Dons</button>
+                         </form>
+                        </li>
                         
                        
                     </ul>
@@ -133,7 +132,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <img class="main-logo" src="img/logo/care.png" alt="" />
+                        <img class="main-logo" src="img/logo/logo.png" alt="" />
                     </div>
                 </div>
             </div>
@@ -300,7 +299,12 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        
+                                        <ul class="breadcome-menu">
+                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">AppelDons</span>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -314,55 +318,57 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Liste des projets</h4>
+                            <h4>Liste Des Appels au Don</h4>
                             
                             <div class="asset-inner">
                                 <table>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Nom</th>
-                                        <th>Date de lancement</th>
-                                        <th>Duree de réalisation</th>
-                                        <th>Date d'écheance</th>
+                                        <th>Titre</th>
+                                        <th>Date lancement</th>
+                                        <th>Date écheance</th>
+                                        
                                         <th>Budget</th> 
                                         <th>Lieu</th> 
                                         <th>Description</th>
                                         <th>Setting</th>   
                                     </tr>
-                                    <c:forEach items="${projetList}" var="p">
+                                    <c:forEach items="${appelaudonList}" var="ap">             
                                     <tr>
-                                    	<td>${p.id_projet}</td>
-                                        <td>${p.nom}</td>
-                                        <td>${p.date_lancement}</td>
-                                        <td>${p.duree_realisation}</td>
-                                        <td>${p.date_echeance}</td>
-                                        <td>${p.budget}</td>
-                                        <td>${p.lieu}</td>
-                                        <td>${p.description}</td>
+                                        <td>${ap.id_appel}</td>
+                                        <td>${ap.nom}</td>
+                                        <td>${ap.date_lancement}</td>
+                                        <td>${ap.date_echeance}</td>
+                                        <td>${ap.budget}</td>
+                                        <td>${ap.lieu}</td>
+                                        <td>${ap.description}</td>
                                         
                                         <td>
-                                         <form action="ProjetServlet" method="POST">
+                                        <form action="AppelaudonServlet" method="POST">
                                          	<div class="form-group">
-                                               <input name="id_projet" type="hidden" class="form-control" value="${p.id_projet}">
+                                               <input name="id_appel" type="hidden" class="form-control" value="${ap.id_appel}">
                                              </div>
-                                             <button value="AfficherProjet" name="afficherUnProjet" type="submit" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                          	 <button name="supprimerprojet" data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
+                                             <button  name="afficherUnAppelaudon" type="submit" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                          	 <button name="supprimerappelaudon" data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                           	
-                                          </form>  
+                                          </form> 
                                         </td>
                                         <%-- <td>
-                                           <a href="crud.jsp?id=<%=rs.getString(1) %>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                           <a href="crud.jsp?id=<%=rs.getString(1) %>"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
  --%>                                        
 </tr>
                                     </tr>
-                                     </c:forEach>
+                                     </c:forEach> 
+                                    
+                                    
+                                    
                                    
                                     
                                 </table>
 
                             </div>
-                            <!-- <div class="custom-pagination">
+                            <div class="custom-pagination">
                                 <ul class="pagination">
                                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -370,7 +376,7 @@
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>

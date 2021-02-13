@@ -20,6 +20,30 @@ public class GestionDAOasso  implements DAOassociation{
 		transaction.commit();
 		session.close();		
 	}
+	public boolean validate(String email, String password) {
+
+        Transaction transaction = null;
+        Association a = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // get an user object
+            a = (Association) session.createQuery("FROM Association a WHERE a.email= :email").setParameter("email", email)
+                .uniqueResult();
+
+            if (a != null && a.getPassword().equals(password)) {
+                return true;
+            }
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        return false;
+    }
 	public List<Association> AfficherAssociations(){		
 		List<Association> associationList = new ArrayList();
 		Session session = HibernateUtil.getSessionFactory().openSession();		

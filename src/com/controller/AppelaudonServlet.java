@@ -36,32 +36,39 @@ public class AppelaudonServlet extends HttpServlet{
                 List<Appelaudon> appelaudonList = new ArrayList();
                 appelaudonList = gs.AfficherAppelaudons();
                 request.setAttribute("appelaudonList", appelaudonList);
-                RequestDispatcher rd = request.getRequestDispatcher("liste_dons.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("liste_appel_au_dons.jsp");
                 rd.forward(request, response);
             }
+             if(request.getParameter("afficherUnAppelaudon")!=null){
+            	 int id = Integer.parseInt(request.getParameter("id_appel"));
+                 List<Appelaudon> appelaudonList = new ArrayList();
+                 appelaudonList = gs.AfficherAppelaudon(id);
+                 request.setAttribute("appelaudonList", appelaudonList);
+                 RequestDispatcher rd = request.getRequestDispatcher("modifier_appeldon.jsp");
+                 rd.forward(request, response);
+             }
              
               if(request.getParameter("modifierappelaudon")!=null){
                  int id_appel = Integer.parseInt(request.getParameter("id_appel"));
                  String nom = request.getParameter("nom");
-                 Date date_lancement = null;
-				try {
-					date_lancement = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-                 Date date_echeance = null;
-				try {
-					date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					/*
+					 * Date date_lancement = null; try { date_lancement = (Date) new
+					 * SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"))
+					 * ; } catch (ParseException e) { // TODO Auto-generated catch block
+					 * e.printStackTrace(); } Date date_echeance = null; try { date_echeance =
+					 * (Date) new
+					 * SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
+					 * } catch (ParseException e) { // TODO Auto-generated catch block
+					 * e.printStackTrace(); }
+					 */
                  Float budget = Float.parseFloat(request.getParameter("budget"));
                  String lieu= request.getParameter("lieu");
                  String description = request.getParameter("description");
-                 gs.modifier_Appelaudon(id_appel, nom,date_lancement,date_echeance,budget,lieu,description);                 
-                 RequestDispatcher rd = request.getRequestDispatcher("ModifierAppelaudon.jsp");
+                 gs.modifier_Appelaudon(id_appel, nom,budget,lieu,description);
+                 List<Appelaudon> appelaudonList = new ArrayList();
+                 appelaudonList = gs.AfficherAppelaudons();
+                 request.setAttribute("appelaudonList", appelaudonList);
+                 RequestDispatcher rd = request.getRequestDispatcher("liste_appel_au_dons.jsp");
                  rd.forward(request, response);              
                 
              }
@@ -70,14 +77,17 @@ public class AppelaudonServlet extends HttpServlet{
                 int idx = Integer.parseInt(request.getParameter("id_appel"));
                 ap.setId_appel(idx);
                 gs.supprimer_Appelaudon(ap);
-                RequestDispatcher rd = request.getRequestDispatcher("SupprimerAppelaudon.jsp");
+                List<Appelaudon> appelaudonList = new ArrayList();
+                appelaudonList = gs.AfficherAppelaudons();
+                request.setAttribute("appelaudonList", appelaudonList);
+                RequestDispatcher rd = request.getRequestDispatcher("liste_appel_au_dons.jsp");
                 rd.forward(request, response);
              } 
              if(request.getParameter("ajoutAppelaudon")!=null){
             	 try {
                  String nom = request.getParameter("nom");
-                 Date date_lancement= (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
-                 Date date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
+                 //Date date_lancement= (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
+                 //Date date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
                  Float budget = Float.parseFloat(request.getParameter("budget"));
                  String lieu= request.getParameter("lieu");
                  String description = request.getParameter("description");
@@ -85,13 +95,16 @@ public class AppelaudonServlet extends HttpServlet{
                  
                  
                  ap.setNom(nom);
-                 ap.setDate_lancement(date_lancement);
-                 ap.setDate_echeance( date_echeance );
+                // ap.setDate_lancement(date_lancement);
+                 //ap.setDate_echeance( date_echeance );
                  ap.setBudget(budget);
                  ap.setLieu(lieu);
                  ap.setDescription(description);
                  gs.ajouter_Appelaudon(ap);
-                 RequestDispatcher rd = request.getRequestDispatcher("liste_dons.jsp");
+                 List<Appelaudon> appelaudonList = new ArrayList();
+                 appelaudonList = gs.AfficherAppelaudons();
+                 request.setAttribute("appelaudonList", appelaudonList);
+                 RequestDispatcher rd = request.getRequestDispatcher("liste_appel_au_dons.jsp");
                  rd.forward(request, response);
              }catch(Exception e){
             	 

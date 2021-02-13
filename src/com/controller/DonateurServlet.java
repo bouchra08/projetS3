@@ -84,6 +84,22 @@ public class DonateurServlet extends HttpServlet{
              	 
               	}
               }
+              if(request.getParameter("logindonateur")!=null){
+             	 
+             	 String username = request.getParameter("email");
+             	 String password = request.getParameter("password");
+
+             	 if (gs.validate(username, password)) {
+             		 
+             		 RequestDispatcher dispatcher = request.getRequestDispatcher("AjoutDonateur.jsp");
+             		 dispatcher.forward(request, response);
+             	 } else {
+             		 System.out.print("errore somewhere");
+             		RequestDispatcher dispatcher = request.getRequestDispatcher("login_don.jsp");
+            		 dispatcher.forward(request, response);
+             		 
+             		  }
+               }
                            
           }
          

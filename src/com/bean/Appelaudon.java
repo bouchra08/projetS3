@@ -1,6 +1,7 @@
 package com.bean;
 
 import java.io.Serializable;
+
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -21,6 +22,7 @@ public class Appelaudon implements Serializable{
 	String lieu;
 	String description;
 	int id_asso;
+	
 	public int getId_appel() {
 		return id_appel;
 	}

@@ -90,7 +90,11 @@
                         <li class="active">
                             <a class="has-arrow" href="#" aria-expanded="true"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Projets</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="#" aria-hidden="false"><span class="mini-sub-pro">Lister projets</span></a></li>
+                                <li>
+		                        <form action="ProjetServlet" method="POST">
+		            			&emsp;<button value="AfficherProjet" name="afficherProjet" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste projets</button>
+		       					 </form>
+		       					</li>
                                 <li><a title="Add Courses" href="add_project.jsp"><span class="mini-sub-pro">Ajouter projet</span></a></li>
                                 <li><a title="Courses Profile" href="#"><span class="mini-sub-pro">Projets Info</span></a></li>
                             </ul>
@@ -99,17 +103,25 @@
                         <li>
                             <a class="has-arrow" href="" aria-expanded="true"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Appel aux dons</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Departments List" href="liste_appel_dons.jsp"><span class="mini-sub-pro">Lister appels aux dons</span></a></li>
+                                 <li>
+		                        <form action="AppelaudonServlet" method="POST">
+		            			&emsp;&emsp;<button value="AfficherAppelaudon" name="afficherAppelaudon" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste appels</button>
+		       					 </form>
+		       					</li>
                                 <li><a title="Add Departments" href="add_appel.jsp"><span class="mini-sub-pro">Ajouter appel au don</span></a></li>
                             </ul>
                         </li>
                         <li>
                         <li>
-                            <a title="Landing Page" href="liste_donateurs.jsp" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Donateurs</span></a>
-                        </li>
+                        <form action="DonateurServlet" method="POST">
+            			&emsp;<span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span><button value="AfficherDonateur" name="afficherDonateur" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Donateurs</button>
+       					 </form>
+       					</li>
                         <li>
-                            <a title="Landing Page" href="liste_dons.jsp" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Dons</span></a>
-                        </li>
+                        <form action="DonappelServlet" method="POST">
+            			&emsp;<span class="educate-icon educate-data-table icon-wrap" aria-hidden="true"></span><button value="AfficherDonappel" name="afficherDonappel" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Liste Dons</button>
+       					 </form>
+       					</li>
                         
                         <li id="removable">
                             <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap"></span> <span class="mini-click-non">Parametres de profil</span></a>
