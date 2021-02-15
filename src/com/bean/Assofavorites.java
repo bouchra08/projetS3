@@ -12,9 +12,10 @@ import javax.persistence.Id;
 public class Assofavorites implements Serializable {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id_asso;
+	int asso;
 	int id_donateur;
 	Date date_ajout;
+	int id_asso;
 	public int getId_asso() {
 		return id_asso;
 	}

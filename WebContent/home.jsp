@@ -51,7 +51,24 @@
           </li>
          <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
           
-          <% if (request.getAttribute("id_d")==null) {%>
+          <% if (request.getAttribute("id_d")!=null) {
+          int id_d = (Integer)request.getAttribute("id_d");
+          session.setAttribute("id_d",id_d);}
+          %>
+          <%
+          if(null == session.getAttribute("id_d")){
+        	  
+              %>
+          <li class="nav-item"><a href="index.html" class="nav-link">Login</a></li>
+          
+          <% }
+          else {
+          %>
+          <li class="nav-item"><a href="logout.jsp" class="nav-link">Logout</a></li>
+           <%
+          }
+          %>
+          <%-- <% if (request.getAttribute("id_d")==null) {%>
           <li class="nav-item"><a href="index.html" class="nav-link">Login</a></li>
           <%
           }
@@ -62,7 +79,7 @@
           <li class="nav-item"><a href="logout.jsp" class="nav-link">Logout</a></li>
           <%
           }
-          %>
+          %> --%>
         </ul>
       </div>
     </div>
