@@ -1,6 +1,7 @@
 package com.gestion;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.hibernate.Query;
@@ -8,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.bean.Association;
-import com.bean.Donateur;
+
 import com.crud.DAOassociation;
 
 public class GestionDAOasso  implements DAOassociation{
@@ -20,19 +21,23 @@ public class GestionDAOasso  implements DAOassociation{
 		transaction.commit();
 		session.close();		
 	}
-	public boolean validate(String email, String password) {
+	public int validate(String email, String password) {
 
         Transaction transaction = null;
         Association a = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try (
+        	Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // get an user object
             a = (Association) session.createQuery("FROM Association a WHERE a.email= :email").setParameter("email", email)
                 .uniqueResult();
+            
 
             if (a != null && a.getPassword().equals(password)) {
-                return true;
+                
+               
+        		return a.getId_asso();
             }
             // commit transaction
             transaction.commit();
@@ -42,7 +47,7 @@ public class GestionDAOasso  implements DAOassociation{
             }
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 	public List<Association> AfficherAssociations(){		
 		List<Association> associationList = new ArrayList();

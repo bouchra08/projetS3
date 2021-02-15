@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
         ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="">
+    <link rel="shortcut icon" type="image/x-icon" href="images/mainlogo.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -82,8 +82,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-               <img class="main-logo" src="images/care.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+               <img class="main-logo" src="images/mainlogo.png" alt="" />
+                <strong><img src="images/mainlogo.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -91,8 +91,12 @@
                         <li class="active">
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Projets</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Courses" href="#"><span class="mini-sub-pro">Lister projets</span></a></li>
-                                <li><a title="Add Courses" href="add_project.jsp"><span class="mini-sub-pro">Ajouter projet</span></a></li>
+                                <li>
+		                        <form action="ProjetServlet" method="POST">
+		            			&emsp;<button value="AfficherProjet" name="afficherProjet" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste projets</button>
+		       					 </form>
+		       					</li>
+                                <li><a title="Add Courses" href="add_projet.jsp"><span class="mini-sub-pro">Ajouter projet</span></a></li>
                                 <li><a title="Courses Profile" href="#"><span class="mini-sub-pro">Projets Info</span></a></li>
                             </ul>
                         </li>
@@ -100,17 +104,25 @@
                         <li>
                             <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Appel aux dons</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Departments List" href="liste_appel_dons.jsp"><span class="mini-sub-pro">Lister appels aux dons</span></a></li>
+                               <li>
+		                        <form action="AppelaudonServlet" method="POST">
+		            			&emsp;&emsp;<button value="AfficherAppelaudon" name="afficherAppelaudon" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste appels</button>
+		       					 </form>
+		       					</li>
                                 <li><a title="Add Departments" href="add_appel.jsp"><span class="mini-sub-pro">Ajouter appel au don</span></a></li>
                             </ul>
                         </li>
                         <li>
                         <li>
-                            <a title="Landing Page" href="liste_donateurs.jsp" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Donateurs</span></a>
-                        </li>
+                        <form action="DonateurServlet" method="POST">
+            			&emsp;<span class="educate-icon educate-professor icon-wrap" aria-hidden="true"></span><button value="AfficherDonateur" name="afficherDonateur" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Donateurs</button>
+       					 </form>
+       					</li>
                         <li>
-                            <a title="Landing Page" href="liste_dons.jsp" aria-expanded="false"><span class="educate-icon educate-data-table icon-wrap" aria-hidden="true"></span> <span class="mini-click-non">Dons</span></a>
-                        </li>
+                        <form action="DonappelServlet" method="POST">
+            			&emsp;<span class="educate-icon educate-data-table icon-wrap" aria-hidden="true"></span><button value="AfficherDonappel" name="afficherDonappel" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:100px;height:50px;font-size: 17px;">Liste Dons</button>
+       					 </form>
+       					</li>
                         
                         <li id="removable">
                             <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-pages icon-wrap"></span> <span class="mini-click-non">Parametres de profil</span></a>

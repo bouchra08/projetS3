@@ -10,7 +10,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="images/mainlogo.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -60,9 +60,13 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="images/img-01.png" alt="IMG">
 				</div>
+				
 			        <form action="AssociationServlet" method="POST" class="login100-form validate-form"  name="myform" onsubmit="return validate();">
 			            <span class="login100-form-title">
-					Member Login
+			            <a href="home.jsp" class="txt2" href="#">
+					Go back home
+					<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i></a>
+					<h5>Member Login</h5>
 				    </span>
 			        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 					<input class="input100" type="text" name="email" placeholder="Email">

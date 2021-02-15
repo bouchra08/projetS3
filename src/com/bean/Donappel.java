@@ -19,7 +19,14 @@ public class Donappel implements Serializable {
 	Float montant;
 	String devise;
 	Date date_don;
+	int id_asso;
 	
+	public int getId_asso() {
+		return id_asso;
+	}
+	public void setId_asso(int id_asso) {
+		this.id_asso = id_asso;
+	}
 	public Date getDate_don() {
 		return date_don;
 	}

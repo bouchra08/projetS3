@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<element>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>donation</display-name>     
+  <display-name>donation</display-name>    
+  
 	<servlet>
         <servlet-name>DonateurServlet</servlet-name>
         <servlet-class>com.controller.DonateurServlet</servlet-class>
@@ -8,6 +10,10 @@
     <servlet>
         <servlet-name>AssociationServlet</servlet-name>
         <servlet-class>com.controller.AssociationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssofavoritesServlet</servlet-name>
+        <servlet-class>com.controller.AssofavoritesServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DonappelServlet</servlet-name>
@@ -31,6 +37,10 @@
         <url-pattern>/AssociationServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AssofaviritesServlet</servlet-name>
+        <url-pattern>/AssofaviritesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DonappelServlet</servlet-name>
         <url-pattern>/DonappelServlet</url-pattern>
     </servlet-mapping>
@@ -43,11 +53,19 @@
         <url-pattern>/ProjetServlet</url-pattern>
     </servlet-mapping>
     <session-config>
+    
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
     <welcome-file-list>
         <welcome-file>AjoutDonateur.jsp</welcome-file>
     </welcome-file-list>
+    
+    <context-param>
+	<param-name>primefaces.UPLOADER</param-name>
+	<param-value>native</param-value>
+	</context-param>
 </web-app>
+</element>

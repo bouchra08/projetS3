@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
         ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/mainlogo.png">
     <!-- Google Fonts
         ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -77,8 +78,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <img class="main-logo" src="images/care.png" alt="" />
-                <strong>><img src="images/care.png" alt="" /></strong>
+                <img class="main-logo" src="images/mainlogo.png" alt="" />
+                <strong>><img src="images/mainlogo.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -182,7 +183,7 @@
                                                         </a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                        <li><a href="logout.jsp"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -316,6 +317,8 @@
                         <div class="product-status-wrap">
                             <h4>Liste des projets</h4>
                             
+                             <% int id=(Integer)session.getAttribute("id");  %><%--  <%=id %> --%>
+                            
                             <div class="asset-inner">
                                 <table>
                                     <tr>
@@ -330,6 +333,7 @@
                                         <th>Setting</th>   
                                     </tr>
                                     <c:forEach items="${projetList}" var="p">
+                                    <c:if test="${p.id_asso==id}"> 
                                     <tr>
                                     	<td>${p.id_projet}</td>
                                         <td>${p.nom}</td>
@@ -356,6 +360,7 @@
  --%>                                        
 </tr>
                                     </tr>
+                                    </c:if>
                                      </c:forEach>
                                    
                                     

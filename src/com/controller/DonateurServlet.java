@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bean.Donateur;
 import com.crud.DAO;
@@ -86,16 +87,18 @@ public class DonateurServlet extends HttpServlet{
               }
               if(request.getParameter("logindonateur")!=null){
              	 
-             	 String username = request.getParameter("email");
+             	 String email = request.getParameter("email");
              	 String password = request.getParameter("password");
 
-             	 if (gs.validate(username, password)) {
-             		 
-             		 RequestDispatcher dispatcher = request.getRequestDispatcher("AjoutDonateur.jsp");
+             	 if (gs.validate(email, password)!=0) {
+             		int id_d = gs.validate( email,password);
+                    HttpSession session = request.getSession(true);
+                    request.setAttribute("id_d",id_d);
+             		 RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
              		 dispatcher.forward(request, response);
              	 } else {
              		 System.out.print("errore somewhere");
-             		RequestDispatcher dispatcher = request.getRequestDispatcher("login_don.jsp");
+             		 RequestDispatcher dispatcher = request.getRequestDispatcher("login_don.jsp");
             		 dispatcher.forward(request, response);
              		 
              		  }

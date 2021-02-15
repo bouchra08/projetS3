@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -55,6 +56,12 @@
          <form action="ProjetServlet" method="POST">
             <input type="submit" name="afficherProjet" value="AfficherProjet"> &nbsp; &nbsp;<br>          
         </form>
+        <form action="AssociationServlet" method="POST">
+            <input type="submit" name="afficherAssociation" value="AfficherProjet"> &nbsp; &nbsp;<br>          
+        </form>
+
+	
+                                     
         
 <a href="Ajoutdonateur.jsp">Ajouter une autre?</a>
  <h3>Liste des Donateurs:</h3> <br> 

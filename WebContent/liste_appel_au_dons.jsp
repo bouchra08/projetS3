@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
         ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href=""> 
+    <link rel="shortcut icon" type="image/x-icon" href="images/mainlogo.png"> 
     <!-- Google Fonts
         ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -76,8 +76,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <img class="main-logo" src="images/care.png" alt="" />
-                <strong>><img src="img/logo/logosn.png" alt="" /></strong>
+                <img class="main-logo" src="images/mainlogo.png" alt="" />
+                <strong>><img src="images/mainlogo.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -333,7 +333,9 @@
                                         <th>Description</th>
                                         <th>Setting</th>   
                                     </tr>
-                                    <c:forEach items="${appelaudonList}" var="ap">             
+                                     <% int id=(Integer)session.getAttribute("id");  %> <%-- <%=id %> --%>
+                                    <c:forEach items="${appelaudonList}" var="ap">  
+                                     <c:if test="${ap.id_asso==id}">            
                                     <tr>
                                         <td>${ap.id_appel}</td>
                                         <td>${ap.nom}</td>
@@ -359,6 +361,7 @@
  --%>                                        
 </tr>
                                     </tr>
+                                     </c:if>
                                      </c:forEach> 
                                     
                                     

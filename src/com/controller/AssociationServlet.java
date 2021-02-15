@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bean.Association;
 import com.bean.Donateur;
@@ -20,6 +21,7 @@ public class AssociationServlet extends HttpServlet{
 	Association a = new Association();
     GestionDAOasso gs = new GestionDAOasso();
     DAOassociation a_dao;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -63,12 +65,17 @@ public class AssociationServlet extends HttpServlet{
          }
          if(request.getParameter("loginass")!=null){
         	 
-        	 String username = request.getParameter("email");
+        	 String email = request.getParameter("email");
         	 String password = request.getParameter("password");
 
-        	 if (gs.validate(username, password)) {
+        	 if (gs.validate(email, password)!= 0) {
         		 
-        		 RequestDispatcher dispatcher = request.getRequestDispatcher("AjoutDonateur.jsp");
+        		 
+                 int id_a = gs.validate( email,password);
+                 HttpSession session = request.getSession(true);
+                 //session.setAttribute(id_ass, new Integer(param.intValue() + 1));
+                 request.setAttribute("id_a",id_a);
+        		 RequestDispatcher dispatcher = request.getRequestDispatcher("add_projet.jsp");
         		 dispatcher.forward(request, response);
         	 } else {
         		 System.out.print("errore somewhere");

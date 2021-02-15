@@ -1,6 +1,8 @@
 package com.controller;
 
+import java.io.File;
 import java.io.IOException;
+
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -13,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.bean.Projet;
 import com.crud.DAOprojet;
@@ -91,6 +94,13 @@ public class ProjetServlet  extends HttpServlet{
 	                 Float budget = Float.parseFloat(request.getParameter("budget"));
 	                 String lieu= request.getParameter("lieu");
 	                 String description = request.getParameter("description");
+						/*
+						 * Part part = request.getPart("image"); String filename =
+						 * extractFileName(part); String filepath =
+						 * "C:\\Users\\PC\\Desktop\\Projects\\java ee\\projetS3\\WebContent\\images\\" +
+						 * File.separator+ filename; File fileSaveDir = new File(filepath);
+						 * part.write(filepath + File.separator);
+						 */
 	                 p.setNom(nom);
 	         		// p.setDate_lancement(date_lancement);
 	         		 p.setDuree_realisation(duree_realisation);
@@ -98,6 +108,9 @@ public class ProjetServlet  extends HttpServlet{
 	         		 p.setBudget(budget);
 	         		 p.setLieu(lieu);
 	         		 p.setDescription(description);
+						/*
+						 * p.setFilename(filename); p.setFilepath(filepath);
+						 */
 	                 gs.ajouter_Projet(p);
 	                 List<Projet> projetList = new ArrayList();
 		             projetList = gs.AfficherProjets();
@@ -105,11 +118,22 @@ public class ProjetServlet  extends HttpServlet{
 	                 RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
 	                 rd.forward(request, response);
 	             }catch(Exception e){
-	            	 
+	            	 System.out.print("errrrrrrrro");
+	            	 System.out.print(e);
 	             	}
 	             }
 	                          
 	         }
+	        private String extractFileName(Part part) {
+	        	String contentDisp = part.getHeader("content-disposition");
+	        	String[] items = contentDisp.split(";");
+	        	for (String s : items) {
+	        		if (s.trim().startsWith("filename")) {
+	        			return s.substring(s.indexOf("=") + 2, s.length() -1);
+	        		}
+	        	}
+	        	return "";
+	        }
 	       
 
 

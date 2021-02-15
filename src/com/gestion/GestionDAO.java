@@ -20,7 +20,7 @@ public class GestionDAO  implements DAO{
 		transaction.commit();
 		session.close();		
 	}
-	public boolean validate(String email, String password) {
+	public int validate(String email, String password) {
 
         Transaction transaction = null;
         Donateur d = null;
@@ -32,7 +32,7 @@ public class GestionDAO  implements DAO{
                 .uniqueResult();
 
             if (d != null && d.getPassword().equals(password)) {
-                return true;
+                return  d.getId_donateur();
             }
             // commit transaction
             transaction.commit();
@@ -42,7 +42,7 @@ public class GestionDAO  implements DAO{
             }
             e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 	
 	public void modifier_Donateur(int id_donateur, String nom, String prenom,String email,String tel,String ville,String password) {

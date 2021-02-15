@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/mainlogo.png">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -81,8 +81,8 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-             <img class="main-logo" src="images/care.png" alt="" />
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+             <img class="main-logo" src="images/mainlogo.png" alt="" />
+                <strong><img src="images/mainlogo.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -187,7 +187,7 @@
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                        <li><a href="logout.jsp"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -328,6 +328,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad addcoursepro">
+                                                
                                                     <form action="ProjetServlet" method="POST"  class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -346,14 +347,10 @@
                                                                 <div class="form-group">
                                                                     <input name="date_echeance" id="finish" type="text" class="form-control" placeholder="Date_echeance">
                                                                 </div>
-                                                                <!-- <div class="form-group alert-up-pd">
-                                                                    <div class="dz-message needsclick download-custom">
-                                                                        <i class="fa fa-download edudropnone" aria-hidden="true"></i>
-                                                                        <h2 class="edudropnone">Glissez l'image ici ou cliquez pour la telecharger.</h2>
-                                                                        <p class="edudropnone"><span class="note needsclick">demo</span>
-                                                                        </p>
-                                                                        <input name="imageico" class="hd-pro-img" type="text" />
-                                                                    </div>
+                                                               <!-- <div >
+                                                                    
+                                                                        <input name="image"  type="file" />
+                                                                    
                                                                 </div> -->
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -375,6 +372,9 @@
                                                             </div>
                                                         </div>
                                                     </form>
+                                                    <%int id = (Integer)request.getAttribute("id_a");%>
+												<%= id%>
+												<% session.setAttribute("id",id); %> 
                                                 </div>
                                             </div>
                                         </div>
@@ -442,7 +442,7 @@
     <script src="js/form-validation/form-active.js"></script>
     <!-- dropzone JS
 		============================================ -->
-    <!-- <script src="js/dropzone/dropzone.js"></script> -->
+     <!-- <script src="js/dropzone/dropzone.js"></script> -->
     <!-- tab JS
 		============================================ -->
     <script src="js/tab.js"></script>
