@@ -3,12 +3,14 @@ package com.bean;
 import java.io.Serializable;
 
 
+
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 import com.mysql.cj.jdbc.Blob;
 
@@ -26,20 +28,10 @@ public class Projet implements Serializable{
 	String lieu;
 	String description;
 	int id_asso;
-	String filename;
-	String filepath;
-	public String getFilename() {
-		return filename;
-	}
-	public void setFilename(String filename) {
-		this.filename = filename;
-	}
-	public String getFilepath() {
-		return filepath;
-	}
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
-	}
+	@Lob
+	byte[] image;
+	
+	
 	public int getId_projet() {
 		return id_projet;
 	}
@@ -95,6 +87,13 @@ public class Projet implements Serializable{
 	public void setId_asso(int id_asso) { 
 		this.id_asso = id_asso; 
 	}
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
 	 
 	
 	

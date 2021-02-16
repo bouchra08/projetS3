@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bean.Association;
 import com.bean.Donateur;
+import com.bean.Projet;
 import com.crud.DAOassociation;
 import com.gestion.GestionDAOasso;
 
@@ -37,6 +38,14 @@ public class AssociationServlet extends HttpServlet{
             RequestDispatcher rd = request.getRequestDispatcher("liste_associations.jsp");
             rd.forward(request, response);
         }
+         if(request.getParameter("afficherUneAsso")!=null){
+     	 	int id = Integer.parseInt(request.getParameter("id_asso"));
+             List<Association> assoList = new ArrayList();
+             assoList = gs.AfficherUneAssociation(id);
+             request.setAttribute("assoList", assoList);
+             RequestDispatcher rd = request.getRequestDispatcher("detail_asso.jsp");
+             rd.forward(request, response);
+         }
         
          if(request.getParameter("ajoutAssociation")!=null){
         	 try {

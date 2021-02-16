@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.bean.Association;
-
+import com.bean.Projet;
 import com.crud.DAOassociation;
 
 public class GestionDAOasso  implements DAOassociation{
@@ -56,6 +56,14 @@ public class GestionDAOasso  implements DAOassociation{
 		Query query = session.createQuery(qr);
 		associationList = query.list();
 		return associationList ;
+	}
+	public List<Association> AfficherUneAssociation(int id_asso){		
+		List<Association> assoList = new ArrayList();
+		Session session = HibernateUtil.getSessionFactory().openSession();		
+		String qr = "FROM Association where id_asso="+id_asso; //Entity name
+		Query query = session.createQuery(qr);
+		assoList = query.list();
+		return assoList;
 	}
 
 }
