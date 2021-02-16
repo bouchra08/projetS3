@@ -39,6 +39,7 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
+          
           <li class="nav-item active"><a href="donate_form.jsp" class="nav-link">Donate</a></li>
           <li class="nav-item">
           <form action="AssociationServlet" method="POST">
@@ -91,41 +92,31 @@
     <div class="container">
       <div class="row mb-3 justify-content-center">
         <div class="col-md-8 text-center">
-          <h2>Liste des associations</h2>
-          <p class="lead">Cette liste rescence toutes les associations  souhaitant présenter leur activité, projets et appel au dons.</p>
+          <h2>Mes Associations Favorites</h2><img src="images/heart2.png" alt="Image placeholder" class="img-fluid">
+          
           
         </div>
       </div>
 	
 	
       <div class="row">
-      <c:forEach items="${associationList}" var="a">
+       <% int id_d=(Integer)session.getAttribute("id_d");%>
+      <c:forEach items="${assofavoList}" var="af">
+      
         <div class="col-md-12 col-lg-6 mb-5">
           <div class="person-donate text-center">
             <img src="images/asso2.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
-              <h2>${a.nom}</h2>
-              <span class="time d-block mb-3">${a.email}</span>
+              <h2>${af.nom}</h2>
+              <span class="time d-block mb-3">${af.email}</span>
               <form action="AssociationServlet" method="POST">
               <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
             <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:#e3c652;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">View More</button>         
          	 </form>
-         	 <% if(null != session.getAttribute("id_d")){
-	int id_d=(Integer)session.getAttribute("id_d");
-	
-	%>
-         	 <form action="AssofavoritesServlet" method="POST">
-              <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-              <input name="nom" type="hidden" class="form-control" value="${a.nom}">
-              <input name="email" type="hidden" class="form-control" value="${a.email}">
-              <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
-              <!-- <input name ="ajoutAssofavo" type="image" src="images/heart2.png" border="0" alt="Submit" /> -->
-            <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Add to favourites</button>         
-         	 </form>
-         	 <%} %>
             </div>
           </div>    
         </div>
+       
      </c:forEach>
       </div>
     </div>

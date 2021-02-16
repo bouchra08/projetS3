@@ -37,24 +37,22 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+          
           <li class="nav-item active"><a href="donate_form.jsp" class="nav-link">Donate</a></li>
           <li class="nav-item">
           <form action="AssociationServlet" method="POST">
             <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Association</button>         
           </form>
           </li>
-         <form action="AssociationServlet" method="POST">
-         
-            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
-          </form>
-          </li>
-         <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
-          
           <% if (request.getAttribute("id_d")!=null) {
           int id_d = (Integer)request.getAttribute("id_d");
           session.setAttribute("id_d",id_d);}
           %>
+          
+          
+         <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+          
+          
           <%
           if(null == session.getAttribute("id_d")){
         	  
@@ -63,7 +61,14 @@
           
           <% }
           else {
+        	  int id_d=(Integer)session.getAttribute("id_d");
           %>
+          <li class="nav-item">
+         <form action="AssofavoritesServlet" method="POST">
+         	<input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
+            <button value="AfficherAssofavorites" name="afficherAssofavo" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
+          </form>
+          </li>
           <li class="nav-item"><a href="logout.jsp" class="nav-link">Logout</a></li>
            <%
           }

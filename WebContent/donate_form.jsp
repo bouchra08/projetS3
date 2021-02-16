@@ -36,17 +36,35 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+           <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
+          <li class="nav-item active"><a href="donate_form.jsp" class="nav-link">Donate</a></li>
           <li class="nav-item">
           <form action="AssociationServlet" method="POST">
-            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Association</button>         
+            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:black;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Association</button>         
           </form>
           </li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+         <form action="AssociationServlet" method="POST">
+         
+            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:black;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
+          </form>
+          </li>
+         <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
+          
+          
+          <%
+          if(null == session.getAttribute("id_d")){
+        	  
+              %>
+          <li class="nav-item"><a href="index.html" class="nav-link">Login</a></li>
+          
+          <% }
+          else {
+          %>
+          <li class="nav-item"><a href="logout.jsp" class="nav-link">Logout</a></li>
+           <%
+          }
+          %>
         </ul>
       </div>
     </div>

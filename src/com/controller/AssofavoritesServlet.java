@@ -34,15 +34,20 @@ public class AssofavoritesServlet extends HttpServlet{
             List<Assofavorites> assofavoList = new ArrayList();
             assofavoList = gs.AfficherAssofavorites(id_donateur);
             request.setAttribute("assofavoList",assofavoList);
-            RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("liste_favorites.jsp");
             rd.forward(request, response);
         }
         
          if(request.getParameter("ajoutAssofavo")!=null){
         	 try {
         	 int id_asso = Integer.parseInt(request.getParameter("id_asso"));
+        	 String nom= request.getParameter("nom");
+        	 String email =request.getParameter("email");
         	 int id_donateur = Integer.parseInt(request.getParameter("id_donateur"));
+        	 
              af.setId_asso(id_asso);
+             af.setNom(nom);
+             af.setEmail(email);
              af.setId_donateur(id_donateur );
              
              gs.ajouter_Assofavorites(af);
