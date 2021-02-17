@@ -131,6 +131,7 @@
         
         </c:forEach>
         <hr>
+        
         <c:forEach items="${assoList}" var="a">
         <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs </h2>
         <br>
