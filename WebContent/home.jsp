@@ -41,7 +41,12 @@
           <li class="nav-item active"><a href="donate_form.jsp" class="nav-link">Donate</a></li>
           <li class="nav-item">
           <form action="AssociationServlet" method="POST">
-            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Association</button>         
+            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Associations</button>         
+          </form>
+          </li>
+          <li class="nav-item">
+          <form action="ProjetServlet" method="POST">
+            <button value="AfficherProjet" name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
           </form>
           </li>
           <% if (request.getAttribute("id_d")!=null) {
@@ -69,6 +74,7 @@
             <button value="AfficherAssofavorites" name="afficherAssofavo" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
           </form>
           </li>
+          
           <li class="nav-item"><a href="logout.jsp" class="nav-link">Logout</a></li>
            <%
           }
@@ -278,7 +284,7 @@
 
           <p></p>
           <form action="AssociationServlet" method="POST">
-            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" class="btn btn-success btn-hover-white py-3 px-5">Voir les Association</button>         
+            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" class="btn btn-success btn-hover-white py-3 px-5">Voir les Associations</button>         
           </form>
           </p>
         </div>

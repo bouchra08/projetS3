@@ -91,7 +91,7 @@
 			            <input class="login100-form-btn" type="submit" name="loginass" value="Login">
 				</div> 
 			        <div class="text-center p-t-136">
-			            <a href="../index.html" class="txt2" href="#">
+			            <a href="register_a.jsp" class="txt2" href="#">
 					Create your Account
 					<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 					</a>

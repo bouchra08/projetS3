@@ -49,6 +49,11 @@
             <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
           </form>
           </li>
+          <li class="nav-item">
+          <form action="ProjetServlet" method="POST">
+            <button value="AfficherProjet" name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
+          </form>
+          </li>
          <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
           
           

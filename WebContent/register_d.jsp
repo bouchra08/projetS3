@@ -58,7 +58,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Have already an account ? <a href="#" class="loginhere-link">Login here</a>
+                        Have already an account ? <a href="login_don.jsp" class="loginhere-link">Login here</a>
                     </p>
                 </div>
             </div>

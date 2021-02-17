@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,13 +44,9 @@
             <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Association</button>         
           </form>
           </li>
-          <li class="nav-item">
-          <form action="ProjetServlet" method="POST">
-            <button value="AfficherProjet" name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
-          </form>
-          </li>
          <form action="AssociationServlet" method="POST">
-         <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
+         
+            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button>         
           </form>
           </li>
          <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> -->
@@ -82,7 +77,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading">Better To Give Than To Receive</h2>
+              <h2 class="heading mb-5">Our Blog</h2>
             </div>
           </div>
         </div>
@@ -90,31 +85,35 @@
       
     </div>
   </div>
-
-  <div class="site-section fund-raisers">
+  
+  <!-- .section -->
+  
+  <div class="site-section bg-light">
     <div class="container">
-      <div class="row mb-3 justify-content-center">
-        <div class="col-md-8 text-center">
-          <h2>Liste des associations</h2>
-          <p class="lead">Cette liste rescence toutes les associations  souhaitant présenter leur activité, projets et appel au dons.</p>
-          
-        </div>
-      </div>
-	
-	
+    <c:forEach items="${projetList}" var="p">
       <div class="row">
-      <c:forEach items="${associationList}" var="a">
-        <div class="col-md-12 col-lg-6 mb-5">
-          <div class="person-donate text-center">
-            <img src="images/asso2.png" alt="Image placeholder" class="img-fluid">
-            <div class="donate-info">
-              <h2>${a.nom}</h2>
-              <span class="time d-block mb-3">${a.email}</span>
-              <form action="AssociationServlet" method="POST">
-              <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-            <button value="AfficherAssociation" name="afficherUneAsso" type="submit" data-toggle="tooltip" title="" style="background:#e3c652;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">View More</button>         
-         	 </form>
-         	 <% if(null != session.getAttribute("id_d")){
+      
+      
+      
+        <div class="col-6 ">
+          <div class="post-entry">
+            <a href="blog-single.html" class="mb-3 img-wrap">
+              <img src="images/img_4.jpg" alt="Image placeholder" class="img-fluid">
+            </a>
+          </div>
+          </div>
+            <div class="col-6 ">
+            <h3><a href="#">${p.nom}</a></h3>
+            <span class="date mb-4 d-block text-muted">Date de lancement: ${p.date_lancement}</span>
+            
+            <span class="date mb-4 d-block text-muted">Dure�: ${p.duree_realisation}</span>
+            <span class="date mb-4 d-block text-muted">Date d'echeance: ${p.date_echeance}</span>
+            <span class="date mb-4 d-block text-muted">Budget: ${p.budget}</span>
+            <span class="date mb-4 d-block text-muted">Lieu: ${p.lieu}</span>
+            
+            <p>Description du projet : ${p.description}</p>
+           
+         	 <%-- <% if(null != session.getAttribute("id_d")){
 				int id_d=(Integer)session.getAttribute("id_d");
 				
 			 %>
@@ -124,18 +123,34 @@
               <input name="email" type="hidden" class="form-control" value="${a.email}">
               <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
               <!-- <input name ="ajoutAssofavo" type="image" src="images/heart2.png" border="0" alt="Submit" /> -->
-            <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Add to favourites</button>         
+            <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button>         
          	 </form>
-         	 <%} %>
-            </div>
-          </div>    
+         	 <%} %> --%>
+         	 <a href="donate_form.jsp"><button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>        
+            <br>
+            <br>
+          </div>
         </div>
-     </c:forEach>
+        
+        </c:forEach>
+        <hr>
+        
+        <c:forEach items="${assoList}" var="a">
+        <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs </h2>
+        <br>
+        
+        <form action="CommentaireServlet" method="POST">
+         <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
+         	 <button value="ajoutCommentaire" name="afficherCommentaire" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ded94e;border: none;width:150px;height:40px;font-size: 18px;margin-top:15px;cursor: pointer;margin-left:45%">View All</button>         
+         </form>
+        
+        
+         
       </div>
+       </c:forEach>
     </div>
   </div> <!-- .section -->
 
- 
 
  <footer class="footer">
     <div class="container">
