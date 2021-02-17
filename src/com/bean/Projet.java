@@ -21,9 +21,9 @@ public class Projet implements Serializable{
 	
 	int id_projet;
 	String nom;
-	Date date_lancement;
+	String date_lancement;
 	String duree_realisation;
-	Date date_echeance;
+	String date_echeance;
 	Float budget;
 	String lieu;
 	String description;
@@ -44,10 +44,10 @@ public class Projet implements Serializable{
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public Date getDate_lancement() {
+	public String getDate_lancement() {
 		return date_lancement;
 	}
-	public void setDate_lancement(Date date_lancement) {
+	public void setDate_lancement(String date_lancement) {
 		this.date_lancement = date_lancement;
 	}
 	public String getDuree_realisation() {
@@ -56,10 +56,10 @@ public class Projet implements Serializable{
 	public void setDuree_realisation(String duree_realisation) {
 		this.duree_realisation = duree_realisation;
 	}
-	public Date getDate_echeance() {
+	public String getDate_echeance() {
 		return date_echeance;
 	}
-	public void setDate_echeance(Date date_echeance) {
+	public void setDate_echeance(String date_echeance) {
 		this.date_echeance = date_echeance;
 	}
 	public Float getBudget() {

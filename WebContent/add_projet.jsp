@@ -328,10 +328,16 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad addcoursepro">
-                                                
+                                                <%if (request.getAttribute("id_a")!=null){
+                                                    int id = (Integer)request.getAttribute("id_a");
+                                                    session.setAttribute("id",id); 
+                                                    }
+                                                    %>
+                                                    <%int id_asso=(Integer)session.getAttribute("id"); %>
                                                     <form action="ProjetServlet" method="POST"  class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            
                                                                 <div class="form-group">
                                                                     <input name="nom" type="text" class="form-control" placeholder="Nom du projet">
                                                                 </div>
@@ -360,6 +366,7 @@
                                                                 <div class="form-group">
                                                                      <input name="description" type="text" class="form-control" placeholder="Description">
                                                                 </div>
+                                                                <input name="id_asso" type="hidden" class="form-control" value="<%=id_asso %>" >
                                                             </div>
                                                         </div>
                                                         <br>
@@ -372,9 +379,9 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <%int id = (Integer)request.getAttribute("id_a");%>
-												<%= id%>
-												<% session.setAttribute("id",id); %> 
+                                                    
+											
+												 
                                                 </div>
                                             </div>
                                         </div>

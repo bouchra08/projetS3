@@ -55,13 +55,7 @@ public class ProjetServlet  extends HttpServlet{
 	                 int id_projet = Integer.parseInt(request.getParameter("id_projet"));
 	                 String nom = request.getParameter("nom");
 	                 
-	                 Date date_echeance = null;
-					try {
-						date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
-					} catch (ParseException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+	                 String date_echeance = request.getParameter("date_echeance");
 					 String duree_realisation=request.getParameter("duree_realisation");
 	                 Float budget = Float.parseFloat(request.getParameter("budget"));
 	                 String lieu= request.getParameter("lieu");
@@ -82,18 +76,19 @@ public class ProjetServlet  extends HttpServlet{
 	                List<Projet> projetList = new ArrayList();
 		            projetList = gs.AfficherProjets();
 		            request.setAttribute("projetList", projetList);
-	                RequestDispatcher rd = request.getRequestDispatcher("liste_projet.jsp");
+	                RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
 	                rd.forward(request, response);
 	             } 
 	             if(request.getParameter("ajoutProjet")!=null){
 	            	 try {
 	                 String nom = request.getParameter("nom");
-	                 //Date date_lancement= (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_lancement"));
+	                 String date_lancement= request.getParameter("date_lancement");
 	                 String duree_realisation= request.getParameter("duree_realisation");
-	                 //Date date_echeance = (Date) new SimpleDateFormat("dd-MMM-yyyy").parse(request.getParameter("date_echeance"));
+	                 String date_echeance = request.getParameter("date_echeance");
 	                 Float budget = Float.parseFloat(request.getParameter("budget"));
 	                 String lieu= request.getParameter("lieu");
 	                 String description = request.getParameter("description");
+	                 int id_asso = Integer.parseInt(request.getParameter("id_asso"));
 						/*
 						 * Part part = request.getPart("image"); String filename =
 						 * extractFileName(part); String filepath =
@@ -102,12 +97,13 @@ public class ProjetServlet  extends HttpServlet{
 						 * part.write(filepath + File.separator);
 						 */
 	                 p.setNom(nom);
-	         		// p.setDate_lancement(date_lancement);
+	         		 p.setDate_lancement(date_lancement);
 	         		 p.setDuree_realisation(duree_realisation);
-	         		// p.setDate_echeance(date_echeance);
+	         		 p.setDate_echeance(date_echeance);
 	         		 p.setBudget(budget);
 	         		 p.setLieu(lieu);
 	         		 p.setDescription(description);
+	         		 p.setId_asso(id_asso);
 						/*
 						 * p.setFilename(filename); p.setFilepath(filepath);
 						 */

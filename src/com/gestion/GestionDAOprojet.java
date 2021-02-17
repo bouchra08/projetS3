@@ -27,7 +27,7 @@ public class GestionDAOprojet implements DAOprojet{
 				
 	}
 	
-	public List<Projet> modifier_Projet(int id_projet, String nom,String duree_realisation,Date date_echeance,Float budget,String lieu,String description) {
+	public List<Projet> modifier_Projet(int id_projet, String nom,String duree_realisation,String date_echeance,Float budget,String lieu,String description) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Projet p = (Projet) session.load(Projet.class,id_projet);
