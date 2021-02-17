@@ -332,6 +332,9 @@
                                                                     <input name="lieu" type="text" class="form-control" value="${ap.lieu}">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <input name="date_lancement"  type="text" class="form-control" value="${ap.date_lancement}">
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <input name="date_echeance"  type="text" class="form-control" value="${ap.date_echeance}">
                                                                 </div>
                                                                 <!-- <div class="form-group alert-up-pd">

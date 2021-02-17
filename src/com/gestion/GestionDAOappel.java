@@ -26,13 +26,13 @@ public class GestionDAOappel implements DAOappel{
 		return appelaudonList;		
 	}
 	
-	public List<Appelaudon> modifier_Appelaudon(int id_appel, String nom,Float budget,String lieu,String description) {
+	public List<Appelaudon> modifier_Appelaudon(int id_appel, String nom,String date_lancement,String date_echeance,Float budget,String lieu,String description) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
 		Appelaudon ap = (Appelaudon) session.load(Appelaudon.class,id_appel);
 		ap.setNom(nom);
-		//ap.setDate_lancement(date_lancement);
-		//ap.setDate_echeance(date_echeance);
+		ap.setDate_lancement(date_lancement);
+		ap.setDate_echeance(date_echeance);
 		ap.setBudget(budget);
 		ap.setLieu(lieu);
 		ap.setDescription(description);

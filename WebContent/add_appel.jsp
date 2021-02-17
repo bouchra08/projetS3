@@ -329,7 +329,7 @@
                                             <div class="review-content-section">
                                                 <div id="dropzone1" class="pro-ad addcoursepro">
                                                 
-                                                
+                                                <%int id_asso=(Integer)session.getAttribute("id"); %>
                                                     <form action="AppelaudonServlet" method="POST" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -338,6 +338,9 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <input name="lieu" type="text" class="form-control" placeholder="Lieu">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <input name="date_lancement"  type="text" class="form-control" placeholder="Date de lancement">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <input name="date_echeance"  type="text" class="form-control" placeholder="Date echeance">
@@ -359,6 +362,7 @@
                                                                 <div class="form-group">
                                                                     <input name="description" type="text" class="form-control" placeholder="Description">
                                                                 </div>
+                                                                 <input name="id_asso" type="hidden" class="form-control" value="<%=id_asso%>">
                                                             </div>
                                                         </div>
                                                         <div class="row">
