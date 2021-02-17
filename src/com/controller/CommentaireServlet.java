@@ -29,7 +29,7 @@ public class CommentaireServlet extends HttpServlet{
          if(request.getParameter("afficherCommentaire")!=null){
         	 try {
         		
-        	 int id_asso = Integer.parseInt(request.getParameter("id_asso"));
+        	int id_asso = Integer.parseInt(request.getParameter("id_asso"));
             List<Commentaire> commentaireList= new ArrayList();
             commentaireList= gs.AfficherCommentaire(id_asso);
             request.setAttribute("commentaireList",commentaireList);

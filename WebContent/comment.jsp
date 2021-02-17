@@ -134,8 +134,10 @@
          </div>
          </c:forEach>
          <% int id_ass=(Integer)session.getAttribute("id_ass");%>
-         <%  int id_d=(Integer)session.getAttribute("id_d");%>
-         
+        
+         <% if (session.getAttribute("id_d")!=null){
+        	 int id_d=(Integer)session.getAttribute("id_d");
+        	 %>
          <form action="CommentaireServlet" method="POST">
          <input name="id_asso" type="hidden" class="form-control" value="<%=id_ass%>">
          <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
@@ -145,6 +147,7 @@
           
           <button value="ajoutCommentaire" name="ajoutCommentaire" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:grey;border: none;width:150px;height:40px;font-size: 18px;margin-top:15px;cursor: pointer;margin-left:45%">Ajouter</button>         
          </form>
+         <%} %>
          
       </div>
     </div>
