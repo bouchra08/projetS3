@@ -8,6 +8,10 @@
         <servlet-class>com.controller.DonateurServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CommentaireServlet</servlet-name>
+        <servlet-class>com.controller.CommentaireServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AssociationServlet</servlet-name>
         <servlet-class>com.controller.AssociationServlet</servlet-class>
     </servlet>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>DonateurServlet</servlet-name>
         <url-pattern>/DonateurServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentaireServlet</servlet-name>
+        <url-pattern>/CommentaireServlet</url-pattern>
     </servlet-mapping>
      <servlet-mapping>
         <servlet-name>AssociationServlet</servlet-name>

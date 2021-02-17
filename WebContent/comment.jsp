@@ -91,11 +91,7 @@
   <div class="site-section bg-light">
     <div class="container">
       <div class="row">
-      <% 
-      int id_ass = (Integer)request.getAttribute("id_ass");
-      session.setAttribute("id_ass",id_ass);%>
       
-      <c:forEach items="${assoList}" var="a">
         <div class="col-6 ">
           <div class="post-entry">
             <a href="blog-single.html" class="mb-3 img-wrap">
@@ -104,47 +100,56 @@
           </div>
           </div>
             <div class="col-6 ">
-            <h3><a href="#">${a.nom}</a></h3>
-            <span class="date mb-4 d-block text-muted">Email: ${a.email}</span>
+            <h3><a href="#">Helper</a></h3>
+            <span class="date mb-4 d-block text-muted">Email: helper@gmail.com</span>
             
-            <span class="date mb-4 d-block text-muted">Téléphone: ${a.tel}</span>
-            <span class="date mb-4 d-block text-muted">Ville: ${a.ville}</span>
-            <span class="date mb-4 d-block text-muted">Adresse: ${a.adresse}</span>
-            <p>Qui somme nous ?: ${a.description}</p>
+            <span class="date mb-4 d-block text-muted">Téléphone: 0614523659</span>
+            <span class="date mb-4 d-block text-muted">Ville: Casablanca</span>
+            <span class="date mb-4 d-block text-muted">Adresse: Maarif boulvard Anfa</span>
+            <p>In order for the Review Process to be initiated, charities raise a question with their analyst, which is then reviewed by the appropriate analyst and at least one additional senior member of the analyst team. This review by two members of the Charity Navigator team is to get several perspectives on the matter at hand</p>
            
-         	 <% if(null != session.getAttribute("id_d")){
-				int id_d=(Integer)session.getAttribute("id_d");
-				
-			 %>
-         	 <form action="AssofavoritesServlet" method="POST">
-              <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-              <input name="nom" type="hidden" class="form-control" value="${a.nom}">
-              <input name="email" type="hidden" class="form-control" value="${a.email}">
-              <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
-              <!-- <input name ="ajoutAssofavo" type="image" src="images/heart2.png" border="0" alt="Submit" /> -->
-            <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Add to favourites</button>         
-         	 </form>
-         	 <%} %>
             
           </div>
         </div>
         
-        </c:forEach>
         <hr>
-        <c:forEach items="${assoList}" var="a">
-        <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs </h2>
-        <br>
         
-        <form action="CommentaireServlet" method="POST">
-         <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-         	 <button value="ajoutCommentaire" name="afficherCommentaire" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ded94e;border: none;width:150px;height:40px;font-size: 18px;margin-top:15px;cursor: pointer;margin-left:45%">View All</button>         
-         </form>
-         </c:forEach>
         
          
       </div>
     </div>
   </div> <!-- .section -->
+  <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs <img src="images/heart2.png" alt="Image placeholder" class="img-fluid"></h2>
+        
+   <div class="site-section bg-light">
+    <div class="container">
+      <div class="row">
+      <c:forEach items="${commentaireList}" var="c">
+         <div class="col-4 ">
+         <img src="images/perso.png" alt="Image placeholder" class="img-fluid">
+         </div>
+         <div class="col-8 ">
+         <h5> &emsp;&emsp;&emsp;${c.description}</h5>
+         <hr>
+         </div>
+         </c:forEach>
+         <% int id_ass=(Integer)session.getAttribute("id_ass");%>
+         <%  int id_d=(Integer)session.getAttribute("id_d");%>
+         
+         <form action="CommentaireServlet" method="POST">
+         <input name="id_asso" type="hidden" class="form-control" value="<%=id_ass%>">
+         <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
+          &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp;&emsp;
+           &emsp;&emsp;&emsp;
+           <textarea id="w3review" name="description" rows="4" cols="90"></textarea>
+          
+          <button value="ajoutCommentaire" name="ajoutCommentaire" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:grey;border: none;width:150px;height:40px;font-size: 18px;margin-top:15px;cursor: pointer;margin-left:45%">Ajouter</button>         
+         </form>
+         
+      </div>
+    </div>
+  </div> <!-- .section -->
+  
 
 
  <footer class="footer">

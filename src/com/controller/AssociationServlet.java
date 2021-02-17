@@ -43,6 +43,7 @@ public class AssociationServlet extends HttpServlet{
              List<Association> assoList = new ArrayList();
              assoList = gs.AfficherUneAssociation(id);
              request.setAttribute("assoList", assoList);
+             request.setAttribute("id_ass", id);
              RequestDispatcher rd = request.getRequestDispatcher("detail_asso.jsp");
              rd.forward(request, response);
          }

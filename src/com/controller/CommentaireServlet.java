@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bean.Assofavorites;
 import com.bean.Commentaire;
 import com.crud.DAOcom;
 import com.gestion.GestionDAOcom;
@@ -28,12 +27,20 @@ public class CommentaireServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          if(request.getParameter("afficherCommentaire")!=null){
+        	 try {
+        		
         	 int id_asso = Integer.parseInt(request.getParameter("id_asso"));
             List<Commentaire> commentaireList= new ArrayList();
             commentaireList= gs.AfficherCommentaire(id_asso);
             request.setAttribute("commentaireList",commentaireList);
-            RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
             rd.forward(request, response);
+        	 }catch(Exception e){
+        		 System.out.println("error");
+            	 System.out.print(e);
+            	 RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+                 rd.forward(request, response);
+          	}
         }
         
          if(request.getParameter("ajoutCommentaire")!=null){
@@ -47,7 +54,10 @@ public class CommentaireServlet extends HttpServlet{
              c.setDescription(description);
              
              gs.ajouter_Commentaire(c);
-             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+             List<Commentaire> commentaireList= new ArrayList();
+             commentaireList = gs.AfficherCommentaire(id_asso);
+             request.setAttribute("commentaireList", commentaireList);
+             RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
              rd.forward(request, response);
          }catch(Exception e){
         	 System.out.print(e);

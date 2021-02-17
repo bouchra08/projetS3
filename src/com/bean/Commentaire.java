@@ -16,7 +16,7 @@ public class Commentaire implements Serializable {
 	int id_c;
 	int id_asso;
 	int id_donateur;
-	Date date_creationt;
+	Date date_creation;
 	String description;
 	public int getId_asso() {
 		return id_asso;
@@ -27,14 +27,17 @@ public class Commentaire implements Serializable {
 	public int getId_donateur() {
 		return id_donateur;
 	}
+	public int getId_c() {
+		return id_c;
+	}
 	public void setId_donateur(int id_donateur) {
 		this.id_donateur = id_donateur;
 	}
-	public Date getDate_creationt() {
-		return date_creationt;
+	public Date getDate_creation() {
+		return date_creation;
 	}
-	public void setDate_creationt(Date date_creationt) {
-		this.date_creationt = date_creationt;
+	public void setDate_creationt(Date date_creation) {
+		this.date_creation= date_creation;
 	}
 	public String getDescription() {
 		return description;
