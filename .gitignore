@@ -1,1 +1,3 @@
 /build/
+/src/com/bean/Mailer.java
+/src/com/controller/SendMail.java

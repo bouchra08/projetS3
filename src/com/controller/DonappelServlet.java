@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.Donappel;
+import com.bean.Projet;
 import com.crud.DAOdonappel;
 import com.gestion.GestionDAOdon;
 public class DonappelServlet extends HttpServlet{
@@ -37,6 +38,29 @@ public class DonappelServlet extends HttpServlet{
         	 }
             
         }
+         if(request.getParameter("ajoutDonappel")!=null){
+        	 try {
+        	 int id_asso = Integer.parseInt(request.getParameter("id_asso"));
+        	 int id_donateur= Integer.parseInt(request.getParameter("id_d"));	 
+             Float montant = Float.parseFloat(request.getParameter("montant"));
+             //String devise= request.getParameter("devise");
+             
+             dp.setId_asso(id_asso);
+     		 dp.setId_donateur(id_donateur);
+     		 dp.setMontant(montant);
+     		 //dp.setDevise(devise);
+     		 
+             gs.ajouter_Donappel(dp);
+           
+             RequestDispatcher rd = request.getRequestDispatcher("merci.jsp");
+             rd.forward(request, response);
+         }catch(Exception e){
+        	 System.out.print("errrrrrrrro");
+        	 System.out.print(e);
+         	}
+         }
+                      
+     
          
                       
      }

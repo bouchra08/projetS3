@@ -93,7 +93,11 @@
             
             <h1>Faites un Don Maintenant!</h1>
             <br>
-            <form action="#" method="post" id="don">
+             <% int id_d=(Integer)session.getAttribute("id_d");
+              int id_asso = Integer.parseInt(request.getParameter("id_asso"));
+              %>
+              
+            <form action="DonappelServlet" method="post" >
               <div class="form-group">
                 <!-- <label for="name">Name</label> -->
                 <input type="text" class="form-control py-2" name="name" id="name" placeholder="Enter your name">
@@ -108,29 +112,32 @@
               </div>
               <div class="form-group">
                 <!-- <label for="name">Name</label> -->
-                <input type="text" class="form-control py-2" name="budget" id="budget" placeholder="Enter Somme de donation">
+                <input type="text" class="form-control py-2" name="montant" id="budget" placeholder="Enter Somme de donation">
               </div>
                <div class="form-group">
               	<label  for="cars">Choisir un devise:</label>
 				<select id="devise" name="deviselist" form="don">
-				  <option value="mad">MAD</option>
-				  <option value="euro">EURO</option>
-				  <option value="usd">USD</option>  
+				  <option name="devise" value="mad">MAD</option>
+				  <option name="devise" value="euro">EURO</option>
+				  <option name="devise" value="usd">USD</option>  
 				</select>
 			  <div class="form-group">
                 <input type="text" class="form-control py-2"  name="card" id="card" placeholder="Carte information">
               </div>
               <div class="form-group">
-                <input type="text" class=""  name="email" id="email" placeholder="MM/YY">
-                <input type="text" class=""  name="email" id="email" placeholder="CVC">
+                <input type="text" class=""  name="" id="email" placeholder="MM/YY">
+                <input type="text" class=""  name="" id="email" placeholder="CVC">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control py-2"  name="card" id="card" placeholder="Nom sur Carte">
               </div>
 
               </div>
+              
+              <input name="id_d" type="hidden" class="form-control" value="<%=id_d%>">
+              <input name="id_asso" type="hidden" class="form-control" value="<%=id_asso%>">
               <div class="form-group">
-                <input type="submit" class="btn btn-white px-5 py-2" value="Donate 1000$">
+              <button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button>         
               </div>
             </form>
           </div>

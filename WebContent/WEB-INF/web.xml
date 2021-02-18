@@ -31,10 +31,18 @@
         <servlet-name>ProjetServlet</servlet-name>
         <servlet-class>com.controller.ProjetServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendMail</servlet-name>
+        <servlet-class>com.controller.SendMail</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>DonateurServlet</servlet-name>
         <url-pattern>/DonateurServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendMail</servlet-name>
+        <url-pattern>/SendMail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CommentaireServlet</servlet-name>

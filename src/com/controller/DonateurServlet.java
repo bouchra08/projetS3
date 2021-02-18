@@ -94,6 +94,7 @@ public class DonateurServlet extends HttpServlet{
              		int id_d = gs.validate( email,password);
                     HttpSession session = request.getSession(true);
                     request.setAttribute("id_d",id_d);
+                    request.setAttribute("email", email);
              		 RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
              		 dispatcher.forward(request, response);
              	 } else {

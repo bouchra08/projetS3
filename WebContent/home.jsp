@@ -51,7 +51,9 @@
           </li>
           <% if (request.getAttribute("id_d")!=null) {
           int id_d = (Integer)request.getAttribute("id_d");
-          session.setAttribute("id_d",id_d);}
+          String email =(String)request.getAttribute("email");
+          session.setAttribute("id_d",id_d);
+          session.setAttribute("email",email);}
           %>
           
           

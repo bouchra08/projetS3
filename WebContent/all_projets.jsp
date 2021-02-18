@@ -113,21 +113,18 @@
             
             <p>Description du projet : ${p.description}</p>
            
-         	 <%-- <% if(null != session.getAttribute("id_d")){
+         	  <% if(null != session.getAttribute("id_d")){
 				int id_d=(Integer)session.getAttribute("id_d");
 				
 			 %>
-         	 <form action="AssofavoritesServlet" method="POST">
-              <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-              <input name="nom" type="hidden" class="form-control" value="${a.nom}">
-              <input name="email" type="hidden" class="form-control" value="${a.email}">
-              <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
-              <!-- <input name ="ajoutAssofavo" type="image" src="images/heart2.png" border="0" alt="Submit" /> -->
-            <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button>         
+         	 <form action="donate_form.jsp" method="POST">
+              <input name="id_asso" type="hidden" class="form-control" value="${p.id_asso}">
+              <button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button>         
          	 </form>
-         	 <%} %> --%>
-         	 <a href="donate_form.jsp"><button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>        
-            <br>
+         	 <%} %> 
+         	 
+<!--          	 <a href="donate_form.jsp"><button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>        
+ -->            <br>
             <br>
           </div>
         </div>
@@ -135,19 +132,7 @@
         </c:forEach>
         <hr>
         
-        <c:forEach items="${assoList}" var="a">
-        <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs </h2>
-        <br>
         
-        <form action="CommentaireServlet" method="POST">
-         <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-         	 <button value="ajoutCommentaire" name="afficherCommentaire" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ded94e;border: none;width:150px;height:40px;font-size: 18px;margin-top:15px;cursor: pointer;margin-left:45%">View All</button>         
-         </form>
-        
-        
-         
-      </div>
-       </c:forEach>
     </div>
   </div> <!-- .section -->
 
