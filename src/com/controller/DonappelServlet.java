@@ -43,12 +43,12 @@ public class DonappelServlet extends HttpServlet{
         	 int id_asso = Integer.parseInt(request.getParameter("id_asso"));
         	 int id_donateur= Integer.parseInt(request.getParameter("id_d"));	 
              Float montant = Float.parseFloat(request.getParameter("montant"));
-             //String devise= request.getParameter("devise");
+             String devise= request.getParameter("devise");
              
              dp.setId_asso(id_asso);
      		 dp.setId_donateur(id_donateur);
      		 dp.setMontant(montant);
-     		 //dp.setDevise(devise);
+     		 dp.setDevise(devise);
      		 
              gs.ajouter_Donappel(dp);
            
