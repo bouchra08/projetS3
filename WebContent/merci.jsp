@@ -13,7 +13,7 @@
               %>
 <form action="SendMail">  
 <input name="to" type="hidden" class="form-control" value="<%=email%>">
-<input type="submit" value="send"/>  
+<input type="submit" value="Recevoir une confirmation"/>  
   </form>
 </div>
 </body>

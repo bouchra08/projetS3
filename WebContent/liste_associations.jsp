@@ -58,6 +58,8 @@
           if(null == session.getAttribute("id_d")){
         	  
               %>
+           <a href="login_don.jsp"><button value="AfficherAssofavorites" name="afficherAssofavo" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button></a>
+            
           <li class="nav-item"><a href="index.html" class="nav-link">Login</a></li>
           
           <% }
@@ -130,6 +132,8 @@
               <!-- <input name ="ajoutAssofavo" type="image" src="images/heart2.png" border="0" alt="Submit" /> -->
             <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Add to favourites</button>         
          	 </form>
+         	 <%}else{ %>
+         	 <a href="login_don.jsp"><button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Add to favourites</button></a>         
          	 <%} %>
             </div>
           </div>    

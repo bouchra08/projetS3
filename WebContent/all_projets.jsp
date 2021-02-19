@@ -57,7 +57,8 @@
           if(null == session.getAttribute("id_d")){
         	  
               %>
-          <li class="nav-item"><a href="index.html" class="nav-link">Login</a></li>
+           <a href="login_don.jsp"><button value="AfficherAssofavorites" name="afficherAssofavo" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Favorites</button></a>
+            <li class="nav-item"><a href="index.html" class="nav-link">Login</a></li>
           
           <% }
           else {
@@ -129,10 +130,13 @@
               <input name="id_asso" type="hidden" class="form-control" value="${p.id_asso}">
               <button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button>         
          	 </form>
-         	 <%} %> 
+         	 <%} 
+         	 else{%>
          	 
-<!--          	 <a href="donate_form.jsp"><button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>        
- -->            <br>
+         	  
+         	 <a href="index.html"><button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>       
+           <%} %>
+           <br>
             <br>
           </div>
         </div>
