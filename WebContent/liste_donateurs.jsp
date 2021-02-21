@@ -87,8 +87,8 @@
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Projets</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li>
-		                        <form action="ProjetServlet" method="POST">
-		            			&emsp;<button value="AfficherProjet" name="afficherProjet" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste projets</button>
+		                        <form action="ProjetServlet" method="get">
+		            			&emsp;<button value="AfficherProjet" name="Projets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste projets</button>
 		       					 </form>
 		       					</li>
                                 <li><a title="Add Courses" href="add_projet.jsp"><span class="mini-sub-pro">Ajouter projet</span></a></li>
@@ -99,8 +99,8 @@
                             <a class="has-arrow" href="#" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Appel aux dons</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li>
-		                        <form action="AppelaudonServlet" method="POST">
-		            			&emsp;&emsp;<button value="AfficherAppelaudon" name="afficherAppelaudon" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste appels</button>
+		                        <form action="AppelaudonServlet" method="get">
+		            			&emsp;&emsp;<button value="AfficherAppelaudon" name="Appelaudons" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:grey;border: none;width:150px;height:50px;font-size: 17px;">Liste appels</button>
 		       					 </form>
 		       					</li>
                                 <li><a title="Add Departments" href="add_appel.jsp"><span class="mini-sub-pro">Ajouter appel au don</span></a></li>

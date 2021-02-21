@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import com.bean.Appelaudon;
 import com.bean.Donateur;
@@ -33,6 +35,13 @@ public class AppelaudonServlet extends HttpServlet{
             appelaudonList = gs.AfficherAppelaudons();
             request.setAttribute("appelaudonList", appelaudonList);
             RequestDispatcher rd = request.getRequestDispatcher("all_dons.jsp");
+            rd.forward(request, response);
+        }
+    	if(request.getParameter("Appelaudons")!=null){
+            List<Appelaudon> appelaudonList = new ArrayList();
+            appelaudonList = gs.AfficherAppelaudons();
+            request.setAttribute("appelaudonList", appelaudonList);
+            RequestDispatcher rd = request.getRequestDispatcher("liste_appel_au_dons.jsp");
             rd.forward(request, response);
         }
         
@@ -94,6 +103,12 @@ public class AppelaudonServlet extends HttpServlet{
                  String description = request.getParameter("description");
                  int id_asso = Integer.parseInt(request.getParameter("id_asso"));
                  
+                 Part part=request.getPart("image");
+             	InputStream is=null;
+             	if(part!=null)
+             		is=part.getInputStream();
+             	byte[] data= new byte[is.available()];
+             	is.read(data);
                  
                  
                  ap.setNom(nom);
@@ -103,6 +118,7 @@ public class AppelaudonServlet extends HttpServlet{
                  ap.setLieu(lieu);
                  ap.setDescription(description);
                  ap.setId_asso(id_asso);
+                 ap.setImage(data);
                  gs.ajouter_Appelaudon(ap);
                  List<Appelaudon> appelaudonList = new ArrayList();
                  appelaudonList = gs.AfficherAppelaudons();

@@ -38,6 +38,13 @@ public class ProjetServlet  extends HttpServlet{
              RequestDispatcher rd = request.getRequestDispatcher("all_projets.jsp");
              rd.forward(request, response);
          }
+		 if(request.getParameter("Projets")!=null){
+             List<Projet> projetList = new ArrayList();
+             projetList = gs.AfficherProjets();
+             request.setAttribute("projetList", projetList);
+             RequestDispatcher rd = request.getRequestDispatcher("liste_projets.jsp");
+             rd.forward(request, response);
+         }
 	        
 	    }
 	    
