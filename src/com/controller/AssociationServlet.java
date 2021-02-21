@@ -67,7 +67,7 @@ public class AssociationServlet extends HttpServlet{
              a.setDescription(description);
              a.setPassword(password);
              gs.ajouter_Association(a);
-             RequestDispatcher rd = request.getRequestDispatcher("AfficherDonateurs.jsp");
+             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
              rd.forward(request, response);
          }catch(Exception e){
         	 System.out.print(e);

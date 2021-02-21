@@ -142,7 +142,7 @@
          	 else{%>
          	 
          	  
-         	 <a href="index.html"><button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>       
+         	 <a href="login_don.jsp"><button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button></a>       
            <%} %>
            <br>
             <br>

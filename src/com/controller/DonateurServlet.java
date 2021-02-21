@@ -80,7 +80,7 @@ public class DonateurServlet extends HttpServlet{
                   d.setVille(ville);
                   d.setPassword(password);
                   gs.ajouter_Donateur(d);
-                  RequestDispatcher rd = request.getRequestDispatcher("AfficherDonateurs.jsp");
+                  RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
                   rd.forward(request, response);
               }catch(Exception e){
              	 
