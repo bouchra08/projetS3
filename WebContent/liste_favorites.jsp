@@ -118,8 +118,8 @@
               <h2>${af.nom}</h2>
               <span class="time d-block mb-3">${af.email}</span>
               <form action="AssociationServlet" method="POST">
-              <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
-            <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:#e3c652;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">View More</button>         
+              <input name="id_asso" type="hidden" class="form-control" value="${af.id_asso}">
+            <button value="AfficherAssociation" name="afficherUneAsso" type="submit" data-toggle="tooltip" title="" style="background:#e3c652;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">View More</button>         
          	 </form>
             </div>
           </div>    
