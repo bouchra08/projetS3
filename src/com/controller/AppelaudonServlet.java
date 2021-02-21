@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import com.bean.Donateur;
 import com.crud.DAOappel;
 import com.gestion.GestionDAOappel;
 
+@MultipartConfig
 public class AppelaudonServlet extends HttpServlet{
 	Appelaudon ap = new Appelaudon();
     GestionDAOappel gs = new GestionDAOappel();
@@ -26,6 +28,13 @@ public class AppelaudonServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+    	if(request.getParameter("afficherAppelaudons")!=null){
+            List<Appelaudon> appelaudonList = new ArrayList();
+            appelaudonList = gs.AfficherAppelaudons();
+            request.setAttribute("appelaudonList", appelaudonList);
+            RequestDispatcher rd = request.getRequestDispatcher("all_dons.jsp");
+            rd.forward(request, response);
+        }
         
     }
     

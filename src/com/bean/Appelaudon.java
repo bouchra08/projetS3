@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Appelaudon implements Serializable{
@@ -22,6 +23,19 @@ public class Appelaudon implements Serializable{
 	String lieu;
 	String description;
 	int id_asso;
+	@Lob
+	private byte[] image;
+
+
+	public byte[] getImage() {
+		return image;
+	}
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
 	
 	public int getId_appel() {
 		return id_appel;

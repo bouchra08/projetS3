@@ -38,15 +38,20 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
-          <li class="nav-item active"><a href="donate_form.jsp" class="nav-link">Donate</a></li>
+          
           <li class="nav-item">
           <form action="AssociationServlet" method="POST">
             <button value="AfficherAssociation" name="afficherAssociation" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Association</button>         
           </form>
           </li>
           <li class="nav-item">
-          <form action="ProjetServlet" method="POST">
-            <button value="AfficherProjet" name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
+          <form action="ProjetServlet" method="get">
+            <button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
+          </form>
+          </li>
+          <li class="nav-item">
+          <form action="AppelaudonServlet" method="get">
+            <button name="afficherAppelaudons" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:white;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Appel dons</button>         
           </form>
           </li>
          
@@ -98,6 +103,9 @@
   <!-- .section -->
   
   <div class="site-section bg-light">
+   <h2  style="color: red;margin-left: 45%">Liste Des Projets <img src="images/heart2.png" alt="Image placeholder" class="img-fluid"></h2>
+      <br>
+      <br>
     <div class="container">
     <c:forEach items="${projetList}" var="p">
       <div class="row">
@@ -107,7 +115,7 @@
         <div class="col-6 ">
           <div class="post-entry">
             <a href="blog-single.html" class="mb-3 img-wrap">
-              <img src="images/img_4.jpg" alt="Image placeholder" class="img-fluid">
+              <img src="ProjetImage?id=${p.id_projet}" alt="Image placeholder" class="img-fluid">
             </a>
           </div>
           </div>

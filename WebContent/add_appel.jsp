@@ -330,7 +330,7 @@
                                                 <div id="dropzone1" class="pro-ad addcoursepro">
                                                 
                                                 <%int id_asso=(Integer)session.getAttribute("id"); %>
-                                                    <form action="AppelaudonServlet" method="POST" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload">
+                                                    <form action="AppelaudonServlet" method="POST" class="dropzone dropzone-custom needsclick addcourse" id="demo1-upload" enctype="multipart/form-data">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">
@@ -345,15 +345,11 @@
                                                                 <div class="form-group">
                                                                     <input name="date_echeance"  type="text" class="form-control" placeholder="Date echeance">
                                                                 </div>
-                                                                <!-- <div class="form-group alert-up-pd">
-                                                                    <div class="dz-message needsclick download-custom">
-                                                                        <i class="fa fa-download edudropnone" aria-hidden="true"></i>
-                                                                        <h2 class="edudropnone">Glissez l'image ici ou cliquez pour la telecharger.</h2>
-                                                                        <p class="edudropnone"><span class="note needsclick">demo</span>
-                                                                        </p>
-                                                                        <input name="imageico" class="hd-pro-img" type="file" />
-                                                                    </div>
-                                                                </div> -->
+                                                                 <div >
+                                                                    
+                                                                        <input name="image"  type="file" />
+                                                                    
+                                                                </div>
                                                             </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                                 <div class="form-group">

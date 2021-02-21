@@ -7,6 +7,8 @@
         <servlet-name>DonateurServlet</servlet-name>
         <servlet-class>com.controller.DonateurServlet</servlet-class>
     </servlet>
+    
+    
     <servlet>
         <servlet-name>CommentaireServlet</servlet-name>
         <servlet-class>com.controller.CommentaireServlet</servlet-class>
@@ -23,6 +25,7 @@
         <servlet-name>DonappelServlet</servlet-name>
         <servlet-class>com.controller.DonappelServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>AppelaudonServlet</servlet-name>
         <servlet-class>com.controller.AppelaudonServlet</servlet-class>
