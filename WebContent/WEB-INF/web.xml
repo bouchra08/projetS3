@@ -21,6 +21,10 @@
         <servlet-name>AssofavoritesServlet</servlet-name>
         <servlet-class>com.controller.AssofavoritesServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>ratingServlet</servlet-name>
+        <servlet-class>com.controller.ratingServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>DonappelServlet</servlet-name>
         <servlet-class>com.controller.DonappelServlet</servlet-class>
@@ -39,6 +43,8 @@
         <servlet-class>com.controller.SendMail</servlet-class>
     </servlet>
     
+    
+  
     <servlet-mapping>
         <servlet-name>DonateurServlet</servlet-name>
         <url-pattern>/DonateurServlet</url-pattern>
@@ -78,8 +84,8 @@
         </session-timeout>
     </session-config>
     
-    <welcome-file-list>
-        <welcome-file>AjoutDonateur.jsp</welcome-file>
+      <welcome-file-list>
+        <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
     
     <context-param>

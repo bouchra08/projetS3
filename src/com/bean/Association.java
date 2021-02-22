@@ -18,6 +18,13 @@ public class Association implements Serializable {
 	String ville;
 	String description;
 	String password;
+	Double nbr_etoiles;
+	public Double getNbr_etoiles() {
+		return nbr_etoiles;
+	}
+	public void setNbr_etoiles(Double nbr_etoiles) {
+		this.nbr_etoiles = nbr_etoiles;
+	}
 	public int getId_asso() {
 		return id_asso;
 	}

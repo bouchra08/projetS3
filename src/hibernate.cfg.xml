@@ -18,6 +18,7 @@
          <mapping class="com.bean.Appelaudon"/>
          <mapping class="com.bean.Assofavorites"/>
          <mapping class="com.bean.Commentaire"/>
+         <mapping class="com.bean.rating"/>
          
     </session-factory>
 </hibernate-configuration>

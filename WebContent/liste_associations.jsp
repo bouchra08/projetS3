@@ -6,6 +6,11 @@
 <html lang="en">
   <head>
     <title>Donation App</title>
+    
+    <!-- ========rating======== -->
+    <link rel="stylesheet" href="css/rating.css" type="text/css" title="Rating CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="images/mainlogo.png">
@@ -25,6 +30,31 @@
 
     <link rel="stylesheet" href="css/css/bootstrap.css">
     <link rel="stylesheet" href="css/css/style.css">
+     <style type="text/css">
+	  .stars-outer {
+	  display: inline-block;
+	  position: relative;
+	  font-family: FontAwesome;
+	}
+	 
+	.stars-outer::before {
+	  content: "\f006 \f006 \f006 \f006 \f006";
+	}
+	 
+	.stars-inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  white-space: nowrap;
+	  overflow: hidden;  
+	  width: 0;
+	}
+	 
+	.stars-inner::before {
+	  content: "\f005 \f005 \f005 \f005 \f005";
+	  color: #f8ce0b;
+	}
+	  </style> 
 
   </head>
   <body>
@@ -120,6 +150,10 @@
             <div class="donate-info">
               <h2>${a.nom}</h2>
               <span class="time d-block mb-3">${a.email}</span>
+              <span class="time d-block mb-3">${a.nbr_etoiles}</span>              
+              <div class="stars-outer">
+  				<div class="stars-inner" style="width: ${a.nbr_etoiles}%"></div>
+		      </div>
               <form action="AssociationServlet" method="POST">
               <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
             <button value="AfficherAssociation" name="afficherUneAsso" type="submit" data-toggle="tooltip" title="" style="background:#e3c652;color:white;border: none;width:100px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">View More</button>         
@@ -128,10 +162,12 @@
 				int id_d=(Integer)session.getAttribute("id_d");
 				
 			 %>
+			 
          	 <form action="AssofavoritesServlet" method="POST">
               <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">
               <input name="nom" type="hidden" class="form-control" value="${a.nom}">
               <input name="email" type="hidden" class="form-control" value="${a.email}">
+              
               <input name="id_donateur" type="hidden" class="form-control" value="<%=id_d%>">
               <!-- <input name ="ajoutAssofavo" type="image" src="images/heart2.png" border="0" alt="Submit" /> -->
             <button value="ajoutAssofavorites" name="ajoutAssofavo" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Add to favourites</button>         

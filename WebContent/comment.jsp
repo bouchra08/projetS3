@@ -5,6 +5,11 @@
 <html lang="en">
   <head>
     <title>Donation App</title>
+    
+    <!-- ========rating======== -->
+    <link rel="stylesheet" href="css/rating.css" type="text/css" title="Rating CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/x-icon" href="images/mainlogo.png">
@@ -24,6 +29,34 @@
 
     <link rel="stylesheet" href="css/css/bootstrap.css">
     <link rel="stylesheet" href="css/css/style.css">
+    <% Double starPercentageRounded =(double)request.getAttribute("nbr_etoiles");%>
+
+	  <style type="text/css">
+	  .stars-outer {
+	  display: inline-block;
+	  position: relative;
+	  font-family: FontAwesome;
+	}
+	 
+	.stars-outer::before {
+	  content: "\f006 \f006 \f006 \f006 \f006";
+	}
+	 
+	.stars-inner {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  width: <%=starPercentageRounded%>%;
+	}
+	 
+	.stars-inner::before {
+	  content: "\f005 \f005 \f005 \f005 \f005";
+	  color: #f8ce0b;
+	}
+	  </style>  
+    
 
   </head>
   <body>
@@ -116,7 +149,9 @@
             <span class="date mb-4 d-block text-muted">Ville: Casablanca</span>
             <span class="date mb-4 d-block text-muted">Adresse: Maarif boulvard Anfa</span>
             <p>In order for the Review Process to be initiated, charities raise a question with their analyst, which is then reviewed by the appropriate analyst and at least one additional senior member of the analyst team. This review by two members of the Charity Navigator team is to get several perspectives on the matter at hand</p>
-           
+           	<div class="stars-outer">
+  			<div class="stars-inner"></div>
+		    </div>
             
           </div>
         </div>

@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.bean.Commentaire;
 import com.crud.DAOcom;
 import com.gestion.GestionDAOcom;
+import com.gestion.GestionDAOrating;
 
 public class CommentaireServlet extends HttpServlet{
 	Commentaire c = new Commentaire();
     GestionDAOcom gs = new GestionDAOcom();
     DAOcom c_dao;
+    GestionDAOrating rt=new GestionDAOrating();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -32,6 +34,8 @@ public class CommentaireServlet extends HttpServlet{
         	int id_asso = Integer.parseInt(request.getParameter("id_asso"));
             List<Commentaire> commentaireList= new ArrayList();
             commentaireList= gs.AfficherCommentaire(id_asso);
+            Double res=rt.calculer_rating(id_asso);
+            request.setAttribute("nbr_etoiles", res);
             request.setAttribute("commentaireList",commentaireList);
             RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
             rd.forward(request, response);
@@ -56,6 +60,8 @@ public class CommentaireServlet extends HttpServlet{
              gs.ajouter_Commentaire(c);
              List<Commentaire> commentaireList= new ArrayList();
              commentaireList = gs.AfficherCommentaire(id_asso);
+             Double res=rt.calculer_rating(id_asso);
+             request.setAttribute("nbr_etoiles", res);
              request.setAttribute("commentaireList", commentaireList);
              RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
              rd.forward(request, response);
