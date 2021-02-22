@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,8 +37,7 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="home.jsp" class="nav-link">Home</a></li>
-          
+          <li class="nav-item active"><a href="homeServlet" class="nav-link">Home</a></li>
           
           <li class="nav-item">
           <form action="AssociationServlet" method="POST">
@@ -173,7 +173,8 @@
         <div class="col-md-8 text-center">
           <h2>Latest Projects</h2>
           <p class="lead">Nous avons besoin de vos dons pour réaliser ces projets !! </p>
-          <p><a href="#" class="link-underline">View All Projets</a></p>
+          <p><a href="ProjetServlet" class="link-underline">View All Projets</a></p>
+          
         </div>
       </div>
     </div>
@@ -185,91 +186,25 @@
         <div class="col-md-12 block-11">
           <div class="nonloop-block-11 owl-carousel">
 
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_1.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
+            <c:forEach items="${projetList}" var="p">
             
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_7.jpg" alt="Image placeholder"></a>
+          	<div class="card fundraise-item">
+              <a href="#"><img class="card-img-top" src="ProjetImage?id=${p.id_projet}" alt="Image placeholder"></a>
               <div class="card-body">
-                <h3 class="card-title"><a href="#">Need Shelter for Children in Africa</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
+                <h3 class="card-title"><a href="#">${p.nom}</a></h3>
+                <p class="card-text">${p.description}</p>
+                <span class="donation-time mb-3 d-block">Date lancement:${p.date_lancement}</span>
                 <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: ${p.avancement}%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
+                <span class="fund-raised d-block">${p.budget}</span>
               </div>
             </div>
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_3.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Children Needs Education</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_4.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Refugees Needs Food</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_6.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Voluteer </a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_3.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Children Needs Food</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-           
+          </c:forEach>
           </div>
         </div>
-      <!-- </div> -->
     </div>
+    
   </div> <!-- .section -->
 
 
@@ -301,52 +236,6 @@
     </div>
 
   </div> <!-- .featured-donate -->
-
-<!--   <div class="site-section bg-light">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-12">
-          <h2>Latest News</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_4.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">Be A Volunteer Today</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_5.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">You May Save The Life of A Child</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_6.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">Children That Needs Care</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- .section --> -->
 
   
 

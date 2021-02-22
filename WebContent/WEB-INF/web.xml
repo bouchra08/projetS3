@@ -42,6 +42,11 @@
         <servlet-name>SendMail</servlet-name>
         <servlet-class>com.controller.SendMail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>homeServlet</servlet-name>
+        <servlet-class>com.controller.homeServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     
     
   
@@ -77,6 +82,10 @@
         <servlet-name>ProjetServlet</servlet-name>
         <url-pattern>/ProjetServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>homeServlet</servlet-name>
+        <url-pattern>/homeServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
     
         <session-timeout>
@@ -84,8 +93,8 @@
         </session-timeout>
     </session-config>
     
-      <welcome-file-list>
-        <welcome-file>home.jsp</welcome-file>
+     <welcome-file-list>
+        <welcome-file>homeServlet</welcome-file>
     </welcome-file-list>
     
     <context-param>

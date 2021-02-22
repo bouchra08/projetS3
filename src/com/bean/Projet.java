@@ -26,12 +26,20 @@ public class Projet implements Serializable{
 	String date_echeance;
 	Float budget;
 	String lieu;
+	String avancement;
 	String description;
 	int id_asso;
 	@Lob
 	byte[] image;
 	
 	
+	
+	public String getAvancement() {
+		return avancement;
+	}
+	public void setAvancement(String avancement) {
+		this.avancement = avancement;
+	}
 	public int getId_projet() {
 		return id_projet;
 	}
