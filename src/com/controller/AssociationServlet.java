@@ -71,7 +71,7 @@ public class AssociationServlet extends HttpServlet{
              a.setDescription(description);
              a.setPassword(password);
              gs.ajouter_Association(a);
-             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+             RequestDispatcher rd = request.getRequestDispatcher("homeServlet");
              rd.forward(request, response);
          }catch(Exception e){
         	 System.out.print(e);
@@ -89,6 +89,7 @@ public class AssociationServlet extends HttpServlet{
                  HttpSession session = request.getSession(true);
                  //session.setAttribute(id_ass, new Integer(param.intValue() + 1));
                  request.setAttribute("id_a",id_a);
+                 request.setAttribute("email",email);
         		 RequestDispatcher dispatcher = request.getRequestDispatcher("add_projet.jsp");
         		 dispatcher.forward(request, response);
         	 } else {

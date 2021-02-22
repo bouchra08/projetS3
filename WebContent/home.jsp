@@ -49,9 +49,7 @@
           </form>
           </li>
           <li class="nav-item">
-          <form action="ProjetServlet" method="get">
-            <button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ebba34;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
-          </form>
+            <a href="ProjetServlet"><button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ebba34;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button></a>         
           </li>
           <li class="nav-item">
           <form action="AppelaudonServlet" method="get">
@@ -136,8 +134,8 @@
             <div class="icon"><span class="ion-ios-bulb"></span></div>
             <div class="media-body">
               <h3 class="heading">Our Mission</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
+              <p>You can choose one that's right for you. The best part is that you can make a difference from anywhere.</p>
+              
             </div>
           </div>     
         </div>
@@ -147,8 +145,8 @@
             <div class="icon"><span class="ion-ios-cash"></span></div>
             <div class="media-body">
               <h3 class="heading">Make Donations</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
+              <p>GlobalGiving makes it easy and safe for you to give to local projects anywhere in the world, </p>
+              
             </div>
           </div>  
         </div>
@@ -158,8 +156,8 @@
             <div class="icon"><span class="ion-ios-contacts"></span></div>
             <div class="media-body">
               <h3 class="heading">We Need Volunteers</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
+              <p>You can choose one that's right for you. The best part is that you can make a difference from anywhere.</p>
+              
             </div>
           </div> 
         </div>

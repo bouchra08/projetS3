@@ -49,9 +49,7 @@
           </form>
           </li>
           <li class="nav-item">
-          <form action="ProjetServlet" method="get">
-            <button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ebba34;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
-          </form>
+            <a href="ProjetServlet"><button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ebba34;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button></a>         
           </li>
           <li class="nav-item">
           <form action="AppelaudonServlet" method="get">

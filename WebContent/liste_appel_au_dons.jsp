@@ -156,14 +156,14 @@
                                             <ul class="nav navbar-nav mai-top-nav">
                                                 <li class="nav-item"><a href="#" class="nav-link">Home</a>
                                                 </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">About</a>
-                                                </li>
-                                                <li class="nav-item"><a href="#" class="nav-link">Services</a>
-                                                </li>
                                                 <li class="nav-item"><a href="#" class="nav-link">Projects</a>
                                                 </li>
+                                                <li class="nav-item"><a href="#" class="nav-link">Dons</a>
+                                                </li>
+                                                <li class="nav-item"><a href="#" class="nav-link">Appelaudon</a>
+                                                </li>
                                                 
-                                                <li class="nav-item"><a href="#" class="nav-link">Support</a>
+                                                <li class="nav-item"><a href="#" class="nav-link">More</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -176,7 +176,8 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                             <img src="img/product/pro4.jpg" alt="" />
-                                                            <span class="admin-name">Association</span>
+                                                            <%String email=(String)session.getAttribute("email_a"); %>
+                                                            <span class="admin-name"><%=email %></span>
                                                             <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                         </a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
@@ -372,15 +373,7 @@
                                 </table>
 
                             </div>
-                            <div class="custom-pagination">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

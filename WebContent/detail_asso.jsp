@@ -173,6 +173,7 @@
             <span class="date mb-4 d-block text-muted">Ville: ${a.ville}</span>
             <span class="date mb-4 d-block text-muted">Adresse: ${a.adresse}</span>
             <p>Qui somme nous ?: ${a.description}</p>
+            Rating:
             <div class="stars-outer">
   			<div class="stars-inner"></div>
 		    </div>
@@ -198,14 +199,39 @@
         </div>
         
         </c:forEach>
-        <hr>
+        <br>
+        <br>
         <c:forEach items="${assoList}" var="a">
-        <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs </h2>
         <% if(null != session.getAttribute("id_d")){
 				int id_d=(Integer)session.getAttribute("id_d");
 				
 			 %>
-        <h2  style="margin-left: 40%">
+		<div class="row">
+		<div class="col-6 ">
+        <h4 style="color: black;margin-left: 20%">Rate this association now:</h4>
+        </div>
+        <div class="col-6 ">
+        <h2 >
+        <section class="ratingStar">
+       		 <input type="radio" name="example" class="rating" value="1" />      
+        	 <input type="radio" name="example" class="rating" value="2" />
+        	 <input type="radio" name="example" class="rating" value="3" />
+        	 <input type="radio" name="example" class="rating" value="4" />
+        	 <input type="radio" name="example" class="rating" value="5" />
+    	</section>
+    	</h2>
+    	</div>
+		<%} %>
+		</div>
+    	 </c:forEach>
+        <hr>
+        <c:forEach items="${assoList}" var="a">
+        <h2  style="color: red;margin-left: 35%">Commentaires De Nos Donateurs </h2>
+        <%-- <% if(null != session.getAttribute("id_d")){
+				int id_d=(Integer)session.getAttribute("id_d");
+				
+			 %>
+        <h2  style="margin-left: 47%">
         <section class="ratingStar">
        		 <input type="radio" name="example" class="rating" value="1" />      
         	 <input type="radio" name="example" class="rating" value="2" />
@@ -213,7 +239,7 @@
         	 <input type="radio" name="example" class="rating" value="4" />
         	 <input type="radio" name="example" class="rating" value="5" />
     	</section></h2>
-		<%} %>
+		<%} %> --%>
 
         <form action="CommentaireServlet" method="POST">
          <input name="id_asso" type="hidden" class="form-control" value="${a.id_asso}">

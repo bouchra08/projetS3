@@ -51,7 +51,7 @@ public class AssofavoritesServlet extends HttpServlet{
              af.setId_donateur(id_donateur );
              
              gs.ajouter_Assofavorites(af);
-             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+             RequestDispatcher rd = request.getRequestDispatcher("homeServlet");
              rd.forward(request, response);
          }catch(Exception e){
         	 System.out.print(e);

@@ -48,9 +48,7 @@
           </form>
           </li>
           <li class="nav-item">
-          <form action="ProjetServlet" method="get">
-            <button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ebba34;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button>         
-          </form>
+            <a href="ProjetServlet"><button name="afficherProjets" type="submit" data-toggle="tooltip" title="" style="background:transparent;color:#ebba34;border: none;width:150px;height:50px;font-size: 17px;margin-top:15px;cursor: pointer;">Projets</button></a>         
           </li>
           <li class="nav-item">
           <form action="AppelaudonServlet" method="get">
@@ -102,7 +100,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">Our Blog</h2>
+              <h2 class="heading mb-5">Charity is a continuous process toward success and happiness</h2>
             </div>
           </div>
         </div>

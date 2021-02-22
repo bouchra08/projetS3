@@ -42,7 +42,7 @@ public class CommentaireServlet extends HttpServlet{
         	 }catch(Exception e){
         		 System.out.println("error");
             	 System.out.print(e);
-            	 RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+            	 RequestDispatcher rd = request.getRequestDispatcher("homeServlet");
                  rd.forward(request, response);
           	}
         }

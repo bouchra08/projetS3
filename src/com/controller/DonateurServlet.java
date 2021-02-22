@@ -80,7 +80,7 @@ public class DonateurServlet extends HttpServlet{
                   d.setVille(ville);
                   d.setPassword(password);
                   gs.ajouter_Donateur(d);
-                  RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+                  RequestDispatcher rd = request.getRequestDispatcher("homeServlet");
                   rd.forward(request, response);
               }catch(Exception e){
              	 
@@ -96,7 +96,7 @@ public class DonateurServlet extends HttpServlet{
                     HttpSession session = request.getSession(true);
                     request.setAttribute("id_d",id_d);
                     request.setAttribute("email", email);
-             		 RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+             		 RequestDispatcher dispatcher = request.getRequestDispatcher("homeServlet");
              		 dispatcher.forward(request, response);
              	 } else {
              		 System.out.print("errore somewhere");

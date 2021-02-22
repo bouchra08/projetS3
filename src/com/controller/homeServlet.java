@@ -39,5 +39,15 @@ public class homeServlet  extends HttpServlet{
              rd.forward(request, response);
          
 	    }
+	 protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		        throws ServletException, IOException {
+		
+	             List<Projet> projetList = new ArrayList();
+	             projetList = gs.AfficherProjets();
+	             request.setAttribute("projetList", projetList);
+	             RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+	             rd.forward(request, response);
+	         
+		    }
 
 }
