@@ -146,7 +146,7 @@
 				
 			 %>
          	 <form action="donate_form.jsp" method="POST">
-              <input name="id_asso" type="hidden" class="form-control" value="${p.id_asso}">
+              <input name="id_asso" type="hidden" class="form-control" value="${ap.id_asso}">
               <button  name="ajoutDonappel" type="submit" data-toggle="tooltip" title="" style="background:#851115;color:white;border: none;width:150px;height:40px;font-size: 15px;margin-top:15px;cursor: pointer;">Faire un don</button>         
          	 </form>
          	 <%} 
