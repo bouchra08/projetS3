@@ -329,7 +329,7 @@
                                         <th>Devise</th>
                                         
                                         <th>Date de don</th>
-                                          
+                                        <th>Supprimer</th>   
                                     </tr>
                                      <% int id=(Integer)session.getAttribute("id");  %><%--  <%=id %> --%>
                                    <c:forEach items="${donappelList}" var="da">
@@ -342,7 +342,8 @@
                                         <td>${da.devise}</td>
                                         <td>${da.date_don}</td>
                                         <td>
-                                           
+                                           <a href="#"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true">
+                                           </i></button></a>
                                         </td>
                                         
 </tr>
