@@ -31,11 +31,7 @@ public class ProjetServlet  extends HttpServlet{
 	 @Override
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
-		 List<Projet> projetLists = new ArrayList();
-         projetLists = gs.AfficherProjets();
-         request.setAttribute("projetList", projetLists);
-         RequestDispatcher rds = request.getRequestDispatcher("all_projets.jsp");
-         rds.forward(request, response);
+		
 		 if(request.getParameter("afficherProjets")!=null){
              List<Projet> projetList = new ArrayList();
              projetList = gs.AfficherProjets();
